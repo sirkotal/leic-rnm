@@ -3,4 +3,4 @@ project(leic_rnm)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(leic_rnm main.cpp)
+add_executable(leic_rnm src/main.cpp headers/Graph.h)

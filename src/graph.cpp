@@ -1,8 +1,8 @@
 #include "graph.h"
 
-Vertex* Graph::findVertex(const int &id) const {
+Vertex* Graph::findVertex(const string &id) const {
     for (auto v: vertexSet) {
-        if (v->getId() == id) {
+        if (v->getStation().getName() == id) {
             return v;
         }
     }
@@ -18,16 +18,16 @@ int Graph::findVertexIdx(const int &id) const {
     return -1;
 }
 
-bool Graph::addVertex(const int &id, Station &station) {
-    if (findVertex(id) != nullptr) {
+bool Graph::addVertex(Station &station) {
+    if (findVertex(station.getName()) != nullptr) {
         return false;
     }
 
-    vertexSet.push_back(new Vertex(id, station));
+    vertexSet.push_back(new Vertex(station));
     return true;
 }
 
-bool Graph::addEdge(const int &source, const int &dest, double weight) {
+bool Graph::addEdge(const string &source, const string &dest, double weight) {
     auto v1 = findVertex(source);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr) {
@@ -38,7 +38,7 @@ bool Graph::addEdge(const int &source, const int &dest, double weight) {
     return true;
 }
 
-bool Graph::addBidirectionalEdge(const int &source, const int &dest, double weight) {
+bool Graph::addBidirectionalEdge(const string &source, const string &dest, double weight) {
     auto v1 = findVertex(source);
     auto v2 = findVertex(dest);
     if (v1 == nullptr || v2 == nullptr) {
@@ -58,6 +58,6 @@ int Graph::getNumVertex() const {
     return this->vertexSet.size();
 }
 
-std::vector<Vertex *> Graph::getVertexSet() const {
+vector<Vertex *> Graph::getVertexSet() const {
     return this->vertexSet;
 }

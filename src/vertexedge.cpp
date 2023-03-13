@@ -11,18 +11,18 @@ Edge * Vertex::addEdge(Vertex *d, double w) {
     return newEdge;
 }
 
-bool Vertex::removeEdge(int destID) {
+bool Vertex::removeEdge(string destID) {
     bool removedEdge = false;
     auto it = adj.begin();
     while (it != adj.end()) {
         Edge *edge = *it;
         Vertex *dest = edge->getDest();
-        if (dest->getId() == destID) {
+        if (dest->getStation().getName() == destID) {
             it = adj.erase(it);
             // Also remove the corresponding edge from the incoming list
             auto it2 = dest->incoming.begin();
             while (it2 != dest->incoming.end()) {
-                if ((*it2)->getOrig()->getId() == id) {
+                if ((*it2)->getOrig()->getStation().getName() == station.getName()) {
                     it2 = dest->incoming.erase(it2);
                 }
                 else {
@@ -39,8 +39,8 @@ bool Vertex::removeEdge(int destID) {
     return removedEdge;
 }
 
-int Vertex::getId() const {
-    return this->id;
+Station Vertex::getStation() {
+    return this->station;
 }
 
 std::vector<Edge*> Vertex::getAdj() const {
@@ -65,10 +65,6 @@ Edge *Vertex::getPath() const {
 
 std::vector<Edge *> Vertex::getIncoming() const {
     return this->incoming;
-}
-
-void Vertex::setId(int id) {
-    this->id = id;
 }
 
 void Vertex::setVisited(bool visited) {

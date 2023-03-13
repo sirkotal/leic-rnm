@@ -14,27 +14,26 @@ class Edge;
 
 class Vertex {
 public:
-    Vertex(int id, Station &station);
+    Vertex(Station &station);
 
-    int getId() const;
     std::vector<Edge *> getAdj() const;
+    Station getStation();
     bool isVisited() const;
     bool isProcessing() const;
     unsigned int getIndegree() const;
     Edge *getPath() const;
     std::vector<Edge *> getIncoming() const;
 
-    void setId(int info);
     void setVisited(bool visited);
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setPath(Edge *path);
     Edge * addEdge(Vertex *dest, double w);
-    bool removeEdge(int destID);
+    bool removeEdge(string destID);
 
 private:
     Station station;
-    int id;                // identifier
+    //int id;                // identifier
     std::vector<Edge *> adj;  // outgoing edges
 
     bool visited = false; // used by DFS, BFS, Prim ...

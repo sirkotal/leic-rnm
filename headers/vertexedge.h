@@ -6,6 +6,7 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
+#include "station.h"
 
 class Edge;
 
@@ -13,7 +14,7 @@ class Edge;
 
 class Vertex {
 public:
-    Vertex(int id);
+    Vertex(int id, Station &station);
 
     int getId() const;
     std::vector<Edge *> getAdj() const;
@@ -32,6 +33,7 @@ public:
     bool removeEdge(int destID);
 
 private:
+    Station station;
     int id;                // identifier
     std::vector<Edge *> adj;  // outgoing edges
 

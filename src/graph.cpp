@@ -18,12 +18,12 @@ int Graph::findVertexIdx(const int &id) const {
     return -1;
 }
 
-bool Graph::addVertex(const int &id) {
+bool Graph::addVertex(const int &id, Station &station) {
     if (findVertex(id) != nullptr) {
         return false;
     }
 
-    vertexSet.push_back(new Vertex(id));
+    vertexSet.push_back(new Vertex(id, station));
     return true;
 }
 

@@ -2,7 +2,7 @@
 
 /************************* Vertex  **************************/
 
-Vertex::Vertex(int id): id(id) {}
+Vertex::Vertex(int id, Station &station): id(id), station(station) {}
 
 Edge * Vertex::addEdge(Vertex *d, double w) {
     auto newEdge = new Edge(this, d, w);

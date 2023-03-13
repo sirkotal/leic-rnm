@@ -7,8 +7,8 @@ void Manager::buildRailway(const string& filename) {
 
     if (thefile.is_open())
     {
-        string line;
-        getline(thefile, line);
+        string fline;
+        getline(thefile, fline);
 
         while (!thefile.eof()) {
             getline(thefile, name, ',');

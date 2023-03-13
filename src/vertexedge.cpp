@@ -2,10 +2,10 @@
 
 /************************* Vertex  **************************/
 
-Vertex::Vertex(int id, Station &station): id(id), station(station) {}
+Vertex::Vertex(Station &station): station(station) {}
 
-Edge * Vertex::addEdge(Vertex *d, double w) {
-    auto newEdge = new Edge(this, d, w);
+Edge * Vertex::addEdge(Vertex *d, double w, const string &service) {
+    auto newEdge = new Edge(this, d, w, service);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
@@ -85,7 +85,7 @@ void Vertex::setPath(Edge *path) {
 
 /********************** Edge  ****************************/
 
-Edge::Edge(Vertex *orig, Vertex *dest, double w): orig(orig), dest(dest), weight(w) {}
+Edge::Edge(Vertex *orig, Vertex *dest, double w, const string &service): orig(orig), dest(dest), weight(w), service(service) {}
 
 Vertex * Edge::getDest() const {
     return this->dest;
@@ -113,4 +113,8 @@ void Edge::setReverse(Edge *reverse) {
 
 void Edge::setFlow(double flow) {
     this->flow = flow;
+}
+
+string Edge::getService() const {
+    return this->service;
 }

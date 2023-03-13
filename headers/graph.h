@@ -23,15 +23,15 @@ public:
      *  Adds a vertex with a given content or info (in) to a graph (this).
      *  Returns true if successful, and false if a vertex with that content already exists.
      */
-    bool addVertex(Station &station);
+    bool addVertex(Station station);
 
     /*
      * Adds an edge to a graph (this), given the contents of the source and
      * destination vertices and the edge weight (w).
      * Returns true if successful, and false if the source or destination vertex does not exist.
      */
-    bool addEdge(const string &source, const string &dest, double w);
-    bool addBidirectionalEdge(const string &source, const string &dest, double w);
+    bool addEdge(const string &source, const string &dest, double w, const string &serv);
+    bool addBidirectionalEdge(const string &source, const string &dest, double w, const string &serv);
 
     int getNumVertex() const;
 
@@ -40,7 +40,7 @@ public:
     /*
      * Finds the index of the vertex with a given content.
      */
-    int findVertexIdx(const int &id) const;
+    int findVertexIdx(const string &id) const;
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

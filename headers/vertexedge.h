@@ -28,7 +28,7 @@ public:
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setPath(Edge *path);
-    Edge * addEdge(Vertex *dest, double w);
+    Edge * addEdge(Vertex *dest, double w, const string &service);
     bool removeEdge(string destID);
 
 private:
@@ -47,11 +47,12 @@ private:
 
 class Edge {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w);
+    Edge(Vertex *orig, Vertex *dest, double w, const string &service);
 
     Vertex * getDest() const;
     double getWeight() const;
     Vertex * getOrig() const;
+    string getService() const;
     Edge *getReverse() const;
     double getFlow() const;
 
@@ -61,6 +62,7 @@ public:
 private:
     Vertex * dest; // destination vertex
     double weight; // edge weight, can also be used for capacity
+    string service;
 
     // used for bidirectional edges
     Vertex *orig;

@@ -2,7 +2,7 @@
 
 /************************* Vertex  **************************/
 
-Vertex::Vertex(Station &station): station(station) {}
+Vertex::Vertex(const Station &station): station(station) {}
 
 Edge * Vertex::addEdge(Vertex *d, double w, const string &service) {
     auto newEdge = new Edge(this, d, w, service);

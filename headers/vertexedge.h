@@ -14,7 +14,7 @@ class Edge;
 
 class Vertex {
 public:
-    Vertex(Station &station);
+    Vertex(const Station &station);
 
     std::vector<Edge *> getAdj() const;
     Station getStation();

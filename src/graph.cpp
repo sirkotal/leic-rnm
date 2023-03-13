@@ -18,7 +18,7 @@ int Graph::findVertexIdx(const string &id) const {
     return -1;
 }
 
-bool Graph::addVertex(Station station) {
+bool Graph::addVertex(const Station &station) {
     if (findVertex(station.getName()) != nullptr) {
         return false;
     }

@@ -1,20 +1,14 @@
 #include <iostream>
 
 void invalidInput(){
-    int choice = 0;
-    while(choice != 1) {
-        std::cin.clear();
-        std::cin.ignore();
-        std::cout << "Uh-oh invalid option!\n"
-                     "Insert 1 to return to the menu.\n >";
-        std::cin >> choice;
-        if (!std::cin.fail() && choice == 1)
-            break;
-    }
+    std::cout << '\n';
+    std::cout << "Uh-oh invalid option!\n";
+    std::cin.ignore(10000, '\n');
+    std::cin.clear();
 }
 
 int main() {
-    int choice;
+    char choice;
 
     do{
         std::cout << """"
@@ -31,21 +25,21 @@ int main() {
     std::cin >> choice;
     if (!std::cin.fail()){
         switch(choice){
-            case 1:
+            case '1':
                 std::cout << "Implement opt 1\n";
                 break;
-            case 2:
+            case '2':
                 std::cout << "Implement opt 2\n";
                 break;
-            case 0:
+            case '0':
                 std::cout << "So sorry to see you go! :(\n";
                 exit(0);
             default:
                 invalidInput();
+                break;
         }
-        std::cin.clear();
-    }else{ invalidInput();}
-    }while (choice != 0);
+    }
+    } while (choice != 0);
     return 0;
 }
 

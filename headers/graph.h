@@ -34,6 +34,7 @@ public:
     bool addBidirectionalEdge(const string &source, const string &dest, double w, const string &serv);
 
     int getNumVertex() const;
+    int getNumEdges() const;
 
     vector<Vertex*> getVertexSet() const;
 

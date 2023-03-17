@@ -61,3 +61,11 @@ int Graph::getNumVertex() const {
 vector<Vertex *> Graph::getVertexSet() const {
     return this->vertexSet;
 }
+
+int Graph::getNumEdges() const {
+    int res = 0;
+    for (auto v: vertexSet) {
+        res += v->getAdj().size();
+    }
+    return res;
+}

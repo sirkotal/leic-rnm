@@ -30,6 +30,10 @@ void Manager::buildRailway(const string& filename) {
             getline(thefile, township, ',');
             getline(thefile, line, '\n');
 
+            if (name.size() == 0) {
+                continue;
+            }
+
             railway->addVertex(Station(name, district, municipality, township, line));
         }
         thefile.close();
@@ -70,4 +74,6 @@ void Manager::buildNetwork(const string& filename) {
 
 void Manager::testing() {
     cout << railway->getNumVertex() << endl;
+    cout << railway->getNumEdges() << endl;
+    cout << railway->getVertexSet().at(507)->getStation().getName() << endl;
 }

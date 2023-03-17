@@ -1,5 +1,18 @@
 #include "manager.h"
 
+#define networkF "../data/network.csv"
+#define stationF "../data/stations.csv"
+
+Manager::Manager() {
+    this->railway = new Graph();
+    buildRailway(stationF);
+    buildNetwork(networkF);
+}
+
+Manager::~Manager() {
+    delete railway;
+}
+
 void Manager::buildRailway(const string& filename) {
     string name, district, municipality, township, line;
 
@@ -53,4 +66,8 @@ void Manager::buildNetwork(const string& filename) {
     {
         cout << "Error: The program was unable to open the file.";
     }
+}
+
+void Manager::testing() {
+    cout << railway->getNumVertex() << endl;
 }

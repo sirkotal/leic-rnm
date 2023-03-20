@@ -6,6 +6,7 @@
 #include <queue>
 #include <limits>
 #include <algorithm>
+#include "station.h"
 
 class Edge;
 
@@ -13,26 +14,26 @@ class Edge;
 
 class Vertex {
 public:
-    Vertex(int id);
+    Vertex(const Station &station);
 
-    int getId() const;
     std::vector<Edge *> getAdj() const;
+    Station getStation();
     bool isVisited() const;
     bool isProcessing() const;
     unsigned int getIndegree() const;
     Edge *getPath() const;
     std::vector<Edge *> getIncoming() const;
 
-    void setId(int info);
     void setVisited(bool visited);
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setPath(Edge *path);
-    Edge * addEdge(Vertex *dest, double w);
-    bool removeEdge(int destID);
+    Edge * addEdge(Vertex *dest, double w, const string &service);
+    bool removeEdge(string destID);
 
 private:
-    int id;                // identifier
+    Station station;
+    //int id;                // identifier
     std::vector<Edge *> adj;  // outgoing edges
 
     bool visited = false; // used by DFS, BFS, Prim ...
@@ -46,11 +47,12 @@ private:
 
 class Edge {
 public:
-    Edge(Vertex *orig, Vertex *dest, double w);
+    Edge(Vertex *orig, Vertex *dest, double w, const string &service);
 
     Vertex * getDest() const;
     double getWeight() const;
     Vertex * getOrig() const;
+    string getService() const;
     Edge *getReverse() const;
     double getFlow() const;
 
@@ -60,6 +62,7 @@ public:
 private:
     Vertex * dest; // destination vertex
     double weight; // edge weight, can also be used for capacity
+    string service;
 
     // used for bidirectional edges
     Vertex *orig;

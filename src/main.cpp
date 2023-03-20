@@ -1,4 +1,5 @@
 #include <iostream>
+#include "manager.h"
 
 void invalidInput(){
     int choice = 0;
@@ -14,6 +15,8 @@ void invalidInput(){
 }
 
 int main() {
+    Manager manager = Manager();
+    manager.testing();
     int choice;
 
     do{

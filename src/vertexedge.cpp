@@ -2,27 +2,27 @@
 
 /************************* Vertex  **************************/
 
-Vertex::Vertex(int id): id(id) {}
+Vertex::Vertex(const Station &station): station(station) {}
 
-Edge * Vertex::addEdge(Vertex *d, double w) {
-    auto newEdge = new Edge(this, d, w);
+Edge * Vertex::addEdge(Vertex *d, double w, const string &service) {
+    auto newEdge = new Edge(this, d, w, service);
     adj.push_back(newEdge);
     d->incoming.push_back(newEdge);
     return newEdge;
 }
 
-bool Vertex::removeEdge(int destID) {
+bool Vertex::removeEdge(string destID) {
     bool removedEdge = false;
     auto it = adj.begin();
     while (it != adj.end()) {
         Edge *edge = *it;
         Vertex *dest = edge->getDest();
-        if (dest->getId() == destID) {
+        if (dest->getStation().getName() == destID) {
             it = adj.erase(it);
             // Also remove the corresponding edge from the incoming list
             auto it2 = dest->incoming.begin();
             while (it2 != dest->incoming.end()) {
-                if ((*it2)->getOrig()->getId() == id) {
+                if ((*it2)->getOrig()->getStation().getName() == station.getName()) {
                     it2 = dest->incoming.erase(it2);
                 }
                 else {
@@ -39,8 +39,8 @@ bool Vertex::removeEdge(int destID) {
     return removedEdge;
 }
 
-int Vertex::getId() const {
-    return this->id;
+Station Vertex::getStation() {
+    return this->station;
 }
 
 std::vector<Edge*> Vertex::getAdj() const {
@@ -67,10 +67,6 @@ std::vector<Edge *> Vertex::getIncoming() const {
     return this->incoming;
 }
 
-void Vertex::setId(int id) {
-    this->id = id;
-}
-
 void Vertex::setVisited(bool visited) {
     this->visited = visited;
 }
@@ -89,7 +85,7 @@ void Vertex::setPath(Edge *path) {
 
 /********************** Edge  ****************************/
 
-Edge::Edge(Vertex *orig, Vertex *dest, double w): orig(orig), dest(dest), weight(w) {}
+Edge::Edge(Vertex *orig, Vertex *dest, double w, const string &service): orig(orig), dest(dest), weight(w), service(service) {}
 
 Vertex * Edge::getDest() const {
     return this->dest;
@@ -117,4 +113,8 @@ void Edge::setReverse(Edge *reverse) {
 
 void Edge::setFlow(double flow) {
     this->flow = flow;
+}
+
+string Edge::getService() const {
+    return this->service;
 }

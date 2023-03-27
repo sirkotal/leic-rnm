@@ -43,7 +43,7 @@ public:
      */
     int findVertexIdx(const string &id) const;
 
-    void edmondsKarp(const string source, const string target);
+    double edmondsKarp(const string source, const string target);
 
     bool findAugmentingPath(Vertex* s, Vertex* t);
     void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);

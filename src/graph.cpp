@@ -72,13 +72,15 @@ int Graph::getNumEdges() const {
     return res;
 }
 
-void Graph::edmondsKarp(const string source, const string target) {
+double Graph::edmondsKarp(const string source, const string target) {
     Vertex* s = findVertex(source);
     Vertex* t = findVertex(target);
     if (s == nullptr || t == nullptr || s == t) {
-        std::cerr << "Error" << std::endl;
-        return;
+        std::cerr << "Not a valid path" << std::endl;
+        return -1;
     }
+
+    double flow_max = 0;
 
     // flux reset
     for (auto v : vertexSet) {
@@ -93,17 +95,17 @@ void Graph::edmondsKarp(const string source, const string target) {
         augmentFlowAlongPath(s,t,f);
     }
 
-    return;
+    return flow_max;
 }
 
-bool Graph::findAugmentingPath(Vertex* s, Vertex* t) {
+bool Graph::findAugmentingPath(Vertex* src, Vertex* dst) {
     for (auto v: vertexSet) {
         v->setVisited(false);
     }
-    s->setVisited(true);
+    src->setVisited(true);
     std::queue<Vertex*> q;
-    q.push(s);
-    while (!q.empty() && !t->isVisited()) {
+    q.push(src);
+    while (!q.empty() && !dst->isVisited()) {
         Vertex* v = q.front();
         q.pop();
         for (auto e : v->getAdj()) {
@@ -113,7 +115,7 @@ bool Graph::findAugmentingPath(Vertex* s, Vertex* t) {
             testAndVisit(q,e,e->getOrig(), e->getFlow());
         }
     }
-    return t->isVisited();
+    return dst->isVisited();
 }
 
 void Graph::testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual) {

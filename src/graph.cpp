@@ -94,8 +94,8 @@ double Graph::edmondsKarp(const string source, const string target) {
     while (findAugmentingPath(s,t)) {
         f = findMinResidualAlongPath(s,t);
         augmentFlowAlongPath(s,t,f);
+        flow_max += f;
     }
-    flow_max += f;
     return flow_max;
 }
 

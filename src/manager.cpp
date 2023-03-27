@@ -77,3 +77,7 @@ void Manager::testing() {
     cout << railway->getNumEdges() << endl;
     cout << railway->getVertexSet().at(507)->getStation().getName() << endl;
 }
+
+double Manager::maxTrains(const string source, const string destination) {
+    return railway->edmondsKarp(source, destination);
+}

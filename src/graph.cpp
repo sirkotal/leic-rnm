@@ -89,12 +89,13 @@ double Graph::edmondsKarp(const string source, const string target) {
         }
     }
 
+    double f;
     // find paths in which flux increases
     while (findAugmentingPath(s,t)) {
-        double f = findMinResidualAlongPath(s,t);
+        f = findMinResidualAlongPath(s,t);
         augmentFlowAlongPath(s,t,f);
     }
-
+    flow_max += f;
     return flow_max;
 }
 

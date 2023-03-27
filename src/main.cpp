@@ -17,6 +17,7 @@ void invalidInput(){
 int main() {
     Manager manager = Manager();
     manager.testing();
+    cout << manager.maxTrains("Casa Branca", "Évora") << endl;
     int choice;
 
     do{

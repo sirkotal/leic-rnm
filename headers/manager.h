@@ -16,6 +16,8 @@ public:
 
     void testing();
 
+    double maxTrains(const string source, const string destination);
+
 private:
     Graph* railway;
 };

@@ -42,6 +42,13 @@ public:
      * Finds the index of the vertex with a given content.
      */
     int findVertexIdx(const string &id) const;
+
+    double edmondsKarp(const string source, const string target);
+
+    bool findAugmentingPath(Vertex* s, Vertex* t);
+    void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
+    double findMinResidualAlongPath(Vertex* s, Vertex* t);
+    void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

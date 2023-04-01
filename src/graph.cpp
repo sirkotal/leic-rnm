@@ -1,5 +1,7 @@
 #include "graph.h"
 
+#define MAX std::numeric_limits<double>::max()
+
 Vertex* Graph::findVertex(const string &id) const {
     for (auto v: vertexSet) {
         if (v->getStation().getName() == id) {
@@ -68,4 +70,92 @@ int Graph::getNumEdges() const {
         res += v->getAdj().size();
     }
     return res;
+}
+
+double Graph::edmondsKarp(const string source, const string target) {
+    Vertex* s = findVertex(source);
+    Vertex* t = findVertex(target);
+    if (s == nullptr || t == nullptr || s == t) {
+        std::cerr << "Not a valid path" << std::endl;
+        return -1;
+    }
+
+    double flow_max = 0;
+
+    // flux reset
+    for (auto v : vertexSet) {
+        for (auto e : v->getAdj()) {
+            e->setFlow(0);
+        }
+    }
+
+    double f;
+    // find paths in which flux increases
+    while (findAugmentingPath(s,t)) {
+        f = findMinResidualAlongPath(s,t);
+        augmentFlowAlongPath(s,t,f);
+        flow_max += f;
+    }
+    return flow_max;
+}
+
+bool Graph::findAugmentingPath(Vertex* src, Vertex* dst) {
+    for (auto v: vertexSet) {
+        v->setVisited(false);
+    }
+    src->setVisited(true);
+    std::queue<Vertex*> q;
+    q.push(src);
+    while (!q.empty() && !dst->isVisited()) {
+        Vertex* v = q.front();
+        q.pop();
+        for (auto e : v->getAdj()) {
+            testAndVisit(q,e,e->getDest(), e->getWeight() - e->getFlow());
+        }
+        for (auto e : v->getIncoming()) {
+            testAndVisit(q,e,e->getOrig(), e->getFlow());
+        }
+    }
+    return dst->isVisited();
+}
+
+void Graph::testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual) {
+    if (!w->isVisited() && residual > 0) {
+        w->setVisited(true);
+        w->setPath(e);
+        q.push(w);
+    }
+    return;
+}
+
+double Graph::findMinResidualAlongPath(Vertex* s, Vertex* t) {
+    double f = MAX;
+    for (auto v = t; v!= s;) {
+        Edge* e = v->getPath();
+        if (e->getDest() == v) {
+            f = std::min(f, e->getWeight() - e->getFlow());
+            v = e->getOrig();
+        }
+        else {
+            f = std::min(f, e->getFlow());
+            v = e->getDest();
+        }
+    }
+    return f;
+}
+
+void Graph::augmentFlowAlongPath(Vertex* s, Vertex* t, double f) {
+    for (auto v= t; v!=s; ) {
+        Edge* e = v->getPath();
+        double flow = e->getFlow();
+        if (e->getDest()==v) {
+            e->setFlow(flow + f);
+            v = e->getOrig();
+        }
+        else {
+            e->setFlow(flow - f);
+            v = e->getDest();
+        }
+    }
+    return;
 }

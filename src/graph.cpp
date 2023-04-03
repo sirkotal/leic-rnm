@@ -159,3 +159,24 @@ void Graph::augmentFlowAlongPath(Vertex* s, Vertex* t, double f) {
     }
     return;
 }
+
+vector<pair<string,string>> Graph::maxTrainsPairs() {
+    int max_trains = INT_MIN;
+    vector<pair<string,string>> max_pairs;
+
+    for (auto &source: vertexSet) {
+        for (auto &sink: vertexSet) {
+            int trains_num = edmondsKarp(source->getStation().getName(), sink->getStation().getName());
+            if (trains_num > max_trains) {
+                max_pairs.clear();
+                max_pairs.emplace_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
+                max_trains = trains_num;
+            }
+            else if (trains_num == max_trains && find(max_pairs.begin(), max_pairs.end(), make_pair(sink->getStation().getName(), source->getStation().getName())) == max_pairs.end()) {
+                max_pairs.emplace_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
+            }
+        }
+    }
+
+    return max_pairs;
+}

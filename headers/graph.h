@@ -49,6 +49,8 @@ public:
     void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
     double findMinResidualAlongPath(Vertex* s, Vertex* t);
     void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
+
+    vector<pair<string,string>> maxTrainsPairs();
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

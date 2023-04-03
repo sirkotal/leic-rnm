@@ -220,3 +220,23 @@ vector<pair<string, double>> Graph::topFlowMunicipalities() {
     vector<pair<string, double>> final = mapSort(muns);
     return final;
 }
+
+vector<pair<string, double>> Graph::topFlowDistricts() {
+    map<string, double> dists;
+
+    for (auto &src: vertexSet) {
+        for (auto &dst: vertexSet) {
+            int trains_num = edmondsKarp(src->getStation().getName(), dst->getStation().getName());
+
+            if (trains_num != -1) {
+                if (dists.find(src->getStation().getDistrict()) == dists.end()) {
+                    dists.insert({src->getStation().getDistrict(), 0});
+                }
+
+                dists[src->getStation().getDistrict()] += trains_num;
+            }
+        }
+    }
+    vector<pair<string, double>> final = mapSort(dists);
+    return final;
+}

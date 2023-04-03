@@ -53,6 +53,7 @@ public:
 
     vector<pair<string,string>> maxTrainsPairs();
     vector<pair<string, double>> topFlowMunicipalities();
+    vector<pair<string, double>> topFlowDistricts();
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

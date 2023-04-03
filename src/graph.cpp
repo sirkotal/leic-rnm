@@ -165,7 +165,7 @@ void Graph::augmentFlowAlongPath(Vertex* s, Vertex* t, double f) {
 }
 
 vector<pair<string,string>> Graph::maxTrainsPairs() {
-    int max_trains = 0;
+    int max_trains = INT_MIN;
     vector<pair<string,string>> max_pairs;
 
     for (auto &source: vertexSet) {
@@ -173,14 +173,43 @@ vector<pair<string,string>> Graph::maxTrainsPairs() {
             int trains_num = edmondsKarp(source->getStation().getName(), sink->getStation().getName());
             if (trains_num > max_trains) {
                 max_pairs.clear();
-                max_pairs.emplace_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
+                max_pairs.push_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
                 max_trains = trains_num;
             }
             else if (trains_num == max_trains && find(max_pairs.begin(), max_pairs.end(), make_pair(sink->getStation().getName(), source->getStation().getName())) == max_pairs.end()) {
-                max_pairs.emplace_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
+                max_pairs.push_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
             }
         }
     }
 
     return max_pairs;
+}
+
+bool cmpFunc(pair<string, double>& x, pair<string, double>& y) {
+    return x.second < y.second;
+}
+
+void mapSort(map<string, double> &m) {
+    vector<pair<string, double> > vct;
+
+    for (auto& itr : m) {
+        vct.push_back(itr);
+    }
+
+    sort(vct.begin(), vct.end(), cmpFunc);
+}
+
+map<string, double> Graph::topFlowMunicipalities() {
+    map<string, double> muns;
+
+    for (auto &node: vertexSet) {
+        if (muns.find(node->getStation().getName()) == muns.end()) {
+            muns.insert({node->getStation().getName(), 0});
+        }
+        for (auto &edge: node->getAdj()) {
+            muns[node->getStation().getName()] += edge->getFlow();
+        }
+    }
+    mapSort(muns);
+    return muns;
 }

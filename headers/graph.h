@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <queue>
 #include <limits>
 #include <algorithm>
@@ -51,6 +52,7 @@ public:
     void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
 
     vector<pair<string,string>> maxTrainsPairs();
+    map<string> topFlowMunicipalities();
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

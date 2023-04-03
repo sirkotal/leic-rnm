@@ -17,6 +17,7 @@ public:
     void testing();
 
     double maxTrains(const string source, const string destination);
+    vector<pair<string,string>> maxCapacityTrainsPairs();
 
 private:
     Graph* railway;

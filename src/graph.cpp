@@ -75,8 +75,12 @@ int Graph::getNumEdges() const {
 double Graph::edmondsKarp(const string source, const string target) {
     Vertex* s = findVertex(source);
     Vertex* t = findVertex(target);
-    if (s == nullptr || t == nullptr || s == t) {
+    if (s == nullptr || t == nullptr) {
         std::cerr << "Not a valid path" << std::endl;
+        return -1;
+    }
+
+    if (s == t) {
         return -1;
     }
 
@@ -161,7 +165,7 @@ void Graph::augmentFlowAlongPath(Vertex* s, Vertex* t, double f) {
 }
 
 vector<pair<string,string>> Graph::maxTrainsPairs() {
-    int max_trains = INT_MIN;
+    int max_trains = 0;
     vector<pair<string,string>> max_pairs;
 
     for (auto &source: vertexSet) {

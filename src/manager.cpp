@@ -81,3 +81,7 @@ void Manager::testing() {
 double Manager::maxTrains(const string source, const string destination) {
     return railway->edmondsKarp(source, destination);
 }
+
+vector<pair<string,string>> Manager::maxCapacityTrainsPairs() {
+    return railway->maxTrainsPairs();
+}

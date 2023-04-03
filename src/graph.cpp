@@ -204,15 +204,19 @@ vector<pair<string, double>> mapSort(map<string, double> &m) {
 vector<pair<string, double>> Graph::topFlowMunicipalities() {
     map<string, double> muns;
 
-    for (auto &node: vertexSet) {
-        if (muns.find(node->getStation().getName()) == muns.end()) {
-            muns.insert({node->getStation().getName(), 0});
-        }
-        for (auto &edge: node->getAdj()) {
-            muns[node->getStation().getName()] += edge->getWeight();
+    for (auto &src: vertexSet) {
+        for (auto &dst: vertexSet) {
+            int trains_num = edmondsKarp(src->getStation().getName(), dst->getStation().getName());
+
+            if (trains_num != -1) {
+                if (muns.find(src->getStation().getMunicipality()) == muns.end()) {
+                    muns.insert({src->getStation().getMunicipality(), 0});
+                }
+
+                muns[src->getStation().getMunicipality()] += trains_num;
+            }
         }
     }
-    cout << muns["Porto Campanhã"] << endl;
     vector<pair<string, double>> final = mapSort(muns);
     return final;
 }

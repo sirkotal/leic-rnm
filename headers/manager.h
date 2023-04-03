@@ -18,6 +18,7 @@ public:
 
     double maxTrains(const string source, const string destination);
     vector<pair<string,string>> maxCapacityTrainsPairs();
+    void topFlowMunicipalities(int &k);
 
 private:
     Graph* railway;

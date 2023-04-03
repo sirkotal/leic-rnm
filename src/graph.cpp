@@ -186,20 +186,22 @@ vector<pair<string,string>> Graph::maxTrainsPairs() {
 }
 
 bool cmpFunc(pair<string, double>& x, pair<string, double>& y) {
-    return x.second < y.second;
+    return x.second > y.second;
 }
 
-void mapSort(map<string, double> &m) {
-    vector<pair<string, double> > vct;
+vector<pair<string, double>> mapSort(map<string, double> &m) {
+    vector<pair<string, double>> vct;
 
     for (auto& itr : m) {
         vct.push_back(itr);
     }
 
     sort(vct.begin(), vct.end(), cmpFunc);
+
+    return vct;
 }
 
-map<string, double> Graph::topFlowMunicipalities() {
+vector<pair<string, double>> Graph::topFlowMunicipalities() {
     map<string, double> muns;
 
     for (auto &node: vertexSet) {
@@ -207,9 +209,10 @@ map<string, double> Graph::topFlowMunicipalities() {
             muns.insert({node->getStation().getName(), 0});
         }
         for (auto &edge: node->getAdj()) {
-            muns[node->getStation().getName()] += edge->getFlow();
+            muns[node->getStation().getName()] += edge->getWeight();
         }
     }
-    mapSort(muns);
-    return muns;
+    cout << muns["Porto Campanhã"] << endl;
+    vector<pair<string, double>> final = mapSort(muns);
+    return final;
 }

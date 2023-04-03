@@ -85,3 +85,11 @@ double Manager::maxTrains(const string source, const string destination) {
 vector<pair<string,string>> Manager::maxCapacityTrainsPairs() {
     return railway->maxTrainsPairs();
 }
+
+void Manager::topFlowMunicipalities(int &k) {
+    vector<pair<string, double>> vct = railway->topFlowMunicipalities();
+
+    for (int i = 0; i < k; i++) {
+        cout << vct[i].first << " -> " << vct[i].second << endl;
+    }
+}

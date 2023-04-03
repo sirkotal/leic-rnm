@@ -52,7 +52,7 @@ public:
     void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
 
     vector<pair<string,string>> maxTrainsPairs();
-    map<string> topFlowMunicipalities();
+    vector<pair<string, double>> topFlowMunicipalities();
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

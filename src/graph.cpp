@@ -167,16 +167,26 @@ void Graph::augmentFlowAlongPath(Vertex* s, Vertex* t, double f) {
 vector<pair<string,string>> Graph::maxTrainsPairs() {
     int max_trains = INT_MIN;
     vector<pair<string,string>> max_pairs;
+    map<pair<string,string>, int> matrix;
 
     for (auto &source: vertexSet) {
         for (auto &sink: vertexSet) {
-            int trains_num = edmondsKarp(source->getStation().getName(), sink->getStation().getName());
+            int trains_num = INT_MIN;
+
+            if (matrix.find(make_pair(source->getStation().getName(), sink->getStation().getName())) == matrix.end() && matrix.find(make_pair(sink->getStation().getName(), source->getStation().getName())) == matrix.end()) {
+                trains_num = edmondsKarp(source->getStation().getName(), sink->getStation().getName());
+
+                matrix[make_pair(source->getStation().getName(), sink->getStation().getName())] = trains_num;
+            }
+            else {
+                trains_num = matrix[make_pair(source->getStation().getName(), sink->getStation().getName())];
+            }
             if (trains_num > max_trains) {
                 max_pairs.clear();
                 max_pairs.push_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
                 max_trains = trains_num;
             }
-            else if (trains_num == max_trains && find(max_pairs.begin(), max_pairs.end(), make_pair(sink->getStation().getName(), source->getStation().getName())) == max_pairs.end()) {
+            else if (trains_num == max_trains) {
                 max_pairs.push_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
             }
         }

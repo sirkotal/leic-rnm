@@ -46,10 +46,10 @@ public:
 
     double edmondsKarp(const string source, const string target);
 
-    bool findAugmentingPath(Vertex* s, Vertex* t);
-    void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
-    double findMinResidualAlongPath(Vertex* s, Vertex* t);
-    void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
+    inline bool findAugmentingPath(Vertex* s, Vertex* t);
+    inline void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
+    inline double findMinResidualAlongPath(Vertex* s, Vertex* t);
+    inline void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
 
     vector<pair<string,string>> maxTrainsPairs();
     vector<pair<string, double>> topFlowMunicipalities();

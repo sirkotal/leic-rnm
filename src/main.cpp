@@ -22,8 +22,8 @@ int main() {
     for (auto element: alpha) {
         std::cout << element.first << " -> " << element.second << std::endl;
     }*/
-    int x = 5;
-    manager.topFlowMunicipalities(x);
+    /*int x = 5;
+    manager.topFlowMunicipalities(x);*/
     int choice;
 
     do{

@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <queue>
 #include <limits>
 #include <algorithm>
@@ -49,6 +50,10 @@ public:
     void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
     double findMinResidualAlongPath(Vertex* s, Vertex* t);
     void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
+
+    vector<pair<string,string>> maxTrainsPairs();
+    vector<pair<string, double>> topFlowMunicipalities();
+    vector<pair<string, double>> topFlowDistricts();
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

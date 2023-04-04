@@ -75,8 +75,12 @@ int Graph::getNumEdges() const {
 double Graph::edmondsKarp(const string source, const string target) {
     Vertex* s = findVertex(source);
     Vertex* t = findVertex(target);
-    if (s == nullptr || t == nullptr || s == t) {
+    if (s == nullptr || t == nullptr) {
         std::cerr << "Not a valid path" << std::endl;
+        return -1;
+    }
+
+    if (s == t) {
         return -1;
     }
 
@@ -158,4 +162,81 @@ void Graph::augmentFlowAlongPath(Vertex* s, Vertex* t, double f) {
         }
     }
     return;
+}
+
+vector<pair<string,string>> Graph::maxTrainsPairs() {
+    int max_trains = INT_MIN;
+    vector<pair<string,string>> max_pairs;
+
+    for (auto &source: vertexSet) {
+        for (auto &sink: vertexSet) {
+            int trains_num = edmondsKarp(source->getStation().getName(), sink->getStation().getName());
+            if (trains_num > max_trains) {
+                max_pairs.clear();
+                max_pairs.push_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
+                max_trains = trains_num;
+            }
+            else if (trains_num == max_trains && find(max_pairs.begin(), max_pairs.end(), make_pair(sink->getStation().getName(), source->getStation().getName())) == max_pairs.end()) {
+                max_pairs.push_back(make_pair(source->getStation().getName(), sink->getStation().getName()));
+            }
+        }
+    }
+
+    return max_pairs;
+}
+
+bool cmpFunc(pair<string, double>& x, pair<string, double>& y) {
+    return x.second > y.second;
+}
+
+vector<pair<string, double>> mapSort(map<string, double> &m) {
+    vector<pair<string, double>> vct;
+
+    for (auto& itr : m) {
+        vct.push_back(itr);
+    }
+
+    sort(vct.begin(), vct.end(), cmpFunc);
+
+    return vct;
+}
+
+vector<pair<string, double>> Graph::topFlowMunicipalities() {
+    map<string, double> muns;
+
+    for (auto &src: vertexSet) {
+        for (auto &dst: vertexSet) {
+            int trains_num = edmondsKarp(src->getStation().getName(), dst->getStation().getName());
+
+            if (trains_num != -1) {
+                if (muns.find(src->getStation().getMunicipality()) == muns.end()) {
+                    muns.insert({src->getStation().getMunicipality(), 0});
+                }
+
+                muns[src->getStation().getMunicipality()] += trains_num;
+            }
+        }
+    }
+    vector<pair<string, double>> final = mapSort(muns);
+    return final;
+}
+
+vector<pair<string, double>> Graph::topFlowDistricts() {
+    map<string, double> dists;
+
+    for (auto &src: vertexSet) {
+        for (auto &dst: vertexSet) {
+            int trains_num = edmondsKarp(src->getStation().getName(), dst->getStation().getName());
+
+            if (trains_num != -1) {
+                if (dists.find(src->getStation().getDistrict()) == dists.end()) {
+                    dists.insert({src->getStation().getDistrict(), 0});
+                }
+
+                dists[src->getStation().getDistrict()] += trains_num;
+            }
+        }
+    }
+    vector<pair<string, double>> final = mapSort(dists);
+    return final;
 }

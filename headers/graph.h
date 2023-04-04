@@ -3,43 +3,59 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <queue>
 #include <limits>
 #include <algorithm>
+class Vertex;
+#include "vertexedge.h"
+#include "station.h"
 
-#include "VertexEdge.h"
+using namespace std;
 
 class Graph {
 public:
     /*
     * Auxiliary function to find a vertex with a given ID.
     */
-    Vertex *findVertex(const int &id) const;
+    Vertex *findVertex(const string &id) const;
 
     /*
      *  Adds a vertex with a given content or info (in) to a graph (this).
      *  Returns true if successful, and false if a vertex with that content already exists.
      */
-    bool addVertex(const int &id);
+    bool addVertex(const Station &station);
 
     /*
      * Adds an edge to a graph (this), given the contents of the source and
      * destination vertices and the edge weight (w).
      * Returns true if successful, and false if the source or destination vertex does not exist.
      */
-    bool addEdge(const int &sourc, const int &dest, double w);
-    bool addBidirectionalEdge(const int &sourc, const int &dest, double w);
+    bool addEdge(const string &source, const string &dest, double w, const string &serv);
+    bool addBidirectionalEdge(const string &source, const string &dest, double w, const string &serv);
 
     int getNumVertex() const;
+    int getNumEdges() const;
 
-    std::vector<Vertex*> getVertexSet() const;
+    vector<Vertex*> getVertexSet() const;
 
     /*
      * Finds the index of the vertex with a given content.
      */
-    int findVertexIdx(const int &id) const;
+    int findVertexIdx(const string &id) const;
+
+    double edmondsKarp(const string source, const string target);
+
+    inline bool findAugmentingPath(Vertex* s, Vertex* t);
+    inline void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
+    inline double findMinResidualAlongPath(Vertex* s, Vertex* t);
+    inline void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
+
+    vector<pair<string,string>> maxTrainsPairs();
+    vector<pair<string, double>> topFlowMunicipalities();
+    vector<pair<string, double>> topFlowDistricts();
 private:
-    std::vector<Vertex*> vertexSet;    // vertex set
+    vector<Vertex*> vertexSet;    // vertex set
 };
 
 #endif

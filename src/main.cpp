@@ -1,4 +1,5 @@
 #include <iostream>
+#include "manager.h"
 
 void invalidInput(){
     std::cout << '\n';
@@ -8,6 +9,16 @@ void invalidInput(){
 }
 
 int main() {
+    Manager manager = Manager();
+    manager.testing();
+    cout << manager.maxTrains("Casa Branca", "Portalegre") << endl;
+    vector<pair<std::string, std::string>> alpha = manager.maxCapacityTrainsPairs();
+    for (auto element: alpha) {
+        std::cout << element.first << " -> " << element.second << std::endl;
+    }
+    /*int x = 5;
+    manager.topFlowMunicipalities(x);*/
+    
     char choice;
 
     do{

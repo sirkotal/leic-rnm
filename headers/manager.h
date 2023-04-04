@@ -20,8 +20,11 @@ public:
     vector<pair<string,string>> maxCapacityTrainsPairs();
     void topFlowMunicipalities(int &k);
 
+    double maxArrivalTrainsAtCertain(const string dest);
+
 private:
     Graph* railway;
+
 };
 
 #endif

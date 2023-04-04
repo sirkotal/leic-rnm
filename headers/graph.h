@@ -54,6 +54,13 @@ public:
     vector<pair<string,string>> maxTrainsPairs();
     vector<pair<string, double>> topFlowMunicipalities();
     vector<pair<string, double>> topFlowDistricts();
+
+
+    /*
+    * Calculate the max trains that can arrive at a certain destination, using all the network
+    */
+    double maxArrivalTrains(const string dest);
+
 private:
     vector<Vertex*> vertexSet;    // vertex set
 };

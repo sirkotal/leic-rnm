@@ -22,6 +22,9 @@ int main() {
     for (auto element: alpha) {
         std::cout << element.first << " -> " << element.second << std::endl;
     }
+
+    cout << endl << endl << manager.maxArrivalTrainsAtCertain("Coimbra B");
+
     /*int x = 5;
     manager.topFlowMunicipalities(x);*/
     int choice;

@@ -93,3 +93,8 @@ void Manager::topFlowMunicipalities(int &k) {
         cout << vct[i].first << " -> " << vct[i].second << endl;
     }
 }
+
+
+double Manager::maxArrivalTrainsAtCertain(const string dest){
+    return railway->maxArrivalTrains(dest);
+}

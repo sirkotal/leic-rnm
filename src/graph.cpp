@@ -250,3 +250,17 @@ vector<pair<string, double>> Graph::topFlowDistricts() {
     vector<pair<string, double>> final = mapSort(dists);
     return final;
 }
+
+double Graph::maxArrivalTrains(const string dest){
+    Vertex* motherSrc = new Vertex(Station("all", "all", "all", "all", "all"));
+
+    addVertex(motherSrc->getStation());
+
+    for(auto i : this->vertexSet){
+        if((!i->getStation().operator==(motherSrc->getStation())) && (i->getAdj().size() == 1))
+            addEdge(motherSrc->getStation().getName(), i->getStation().getName(), MAX, "ALL");
+    }
+
+    return edmondsKarp(motherSrc->getStation().getName(), dest);
+
+}

@@ -14,15 +14,17 @@ int main() {
     cout << manager.maxTrains("Lisboa Santa Apolónia", "Porto Campanhã") << endl;
     cout << manager.maxTrains("Casa Branca", "Portalegre") << endl;
 
-    vector<pair<std::string, std::string>> alpha = manager.maxCapacityTrainsPairs();
+    /*vector<pair<std::string, std::string>> alpha = manager.maxCapacityTrainsPairs();
     for (auto element: alpha) {
         std::cout << element.first << " -> " << element.second << std::endl;
     }
 
-    std::cout << manager.maxArrivalTrainsAtCertain("Viana do Castelo") << std::endl;
+    std::cout << manager.maxArrivalTrainsAtCertain("Viana do Castelo") << std::endl;*/
 
     /*int x = 5;
     manager.topFlowMunicipalities(x);*/
+    cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl;
+    std::cout << manager.maxTrainsMinCost("Lisboa Oriente", "Porto Campanhã") << std::endl;
     
     char choice;
 

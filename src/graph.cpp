@@ -295,7 +295,7 @@ double Graph::maxArrivalTrains(const string dest){
     return maxTrainArrival;
 }
 
-vector<Vertex*> Graph::dijkstra(const string source, const string target) {
+vector<Vertex*> Graph::dijkstra(const string &source) {
     priority_queue<Vertex*, std::vector<Vertex*>, std::greater<Vertex*>> pq;
     Vertex* src = findVertex(source);
     for (auto node : vertexSet){
@@ -314,7 +314,14 @@ vector<Vertex*> Graph::dijkstra(const string source, const string target) {
 
         for (auto e : t->getAdj()){
             Vertex *v = e->getDest();
-            int w = e->getWeight();
+            string serv = e->getService();
+            int w;
+            if (serv == "STANDARD") {
+                w = 2;
+            }
+            else if (serv == "ALFA PENDULAR") {
+                w = 4;
+            }
             if (!v->isVisited() && t->getDistance() != INT_MAX && (t->getDistance() + w < v->getDistance())){
                 v->setDistance(t->getDistance()+w);
                 pq.push(v);

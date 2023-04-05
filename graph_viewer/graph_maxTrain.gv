@@ -2,6 +2,7 @@ digraph G {
 layout: neato;
 
 	"Lisboa Oriente" -> "Entroncamento" [label="Flow:4 | Cap:4", color=red, penwidth=4];
+	"Lisboa Oriente" -> "Lisboa Santa Apolónia" [label="Flow:1 | Cap:4", color=red, penwidth=1];
 	"Pombal" -> "Coimbra B" [label="Flow:3 | Cap:3", color=red, penwidth=3];
 	"Vila Nova de Gaia-Devesas" -> "Porto Campanhã" [label="Flow:2 | Cap:4", color=red, penwidth=2];
 	"Seiça-Ourém" -> "Caxarias" [label="Flow:1 | Cap:3", color=red, penwidth=1];
@@ -40,7 +41,6 @@ layout: neato;
 	"Oliveira do Bairro" -> "Oiã" [label="Flow:1 | Cap:3", color=red, penwidth=1];
 	"Quintans" -> "Aveiro - Vouga" [label="Flow:1 | Cap:5", color=red, penwidth=1];
 	"Lisboa Santa Apolónia" -> "Braço de Prata" [label="Flow:1 | Cap:5", color=red, penwidth=1];
-	"Lisboa Santa Apolónia" -> "Lisboa Oriente" [label="Flow:4 | Cap:4", color=red, penwidth=4];
 	"Formoselha / Santo Varão" -> "Pereira" [label="Flow:1 | Cap:1", color=red, penwidth=1];
 	"Figueira da Foz" -> "Pampilhosa" [label="Flow:1 | Cap:3", color=red, penwidth=1];
 	"Figueira da Foz" -> "Coimbra B" [label="Flow:1 | Cap:2", color=red, penwidth=1];

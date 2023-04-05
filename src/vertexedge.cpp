@@ -47,6 +47,10 @@ std::vector<Edge*> Vertex::getAdj() const {
     return this->adj;
 }
 
+int Vertex::getDistance() const {
+    return this->dist;
+}
+
 bool Vertex::isVisited() const {
     return this->visited;
 }
@@ -81,6 +85,10 @@ void Vertex::setIndegree(unsigned int indegree) {
 
 void Vertex::setPath(Edge *path) {
     this->path = path;
+}
+
+void Vertex::setDistance(int num) {
+    this->dist = num;
 }
 
 /********************** Edge  ****************************/

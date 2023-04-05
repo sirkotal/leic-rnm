@@ -294,3 +294,31 @@ double Graph::maxArrivalTrains(const string dest){
     removeVertex(motherSrc->getStation().getName());
     return maxTrainArrival;
 }
+
+vector<Vertex*> Graph::dijkstra(const string source, const string target) {
+    priority_queue<Vertex*, std::vector<Vertex*>, std::greater<Vertex*>> pq;
+    Vertex* src = findVertex(source);
+    for (auto node : vertexSet){
+        node->setVisited(false);
+        node->setDistance(INT_MAX);
+    }
+
+    src->setDistance(0);
+    pq.push(src);
+
+    while (!pq.empty()) {
+        Vertex* t = pq.top();
+        pq.pop();
+
+        t->setVisited(true);
+
+        for (auto e : t->getAdj()){
+            Vertex *v = e->getDest();
+            int w = e->getWeight();
+            if (!v->isVisited() && t->getDistance() != INT_MAX && (t->getDistance() + w < v->getDistance())){
+                v->setDistance(t->getDistance()+w);
+                pq.push(v);
+            }
+        }
+    }
+}

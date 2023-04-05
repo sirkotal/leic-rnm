@@ -33,6 +33,8 @@ public:
     Edge * addEdge(Vertex *dest, double w, const string &service);
     bool removeEdge(string destID);
 
+    bool operator()(const Vertex* s, const Vertex* t) const;
+
 private:
     Station station;
     //int id;                // identifier

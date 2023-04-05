@@ -91,6 +91,10 @@ void Vertex::setDistance(int num) {
     this->dist = num;
 }
 
+bool Vertex::operator()(const Vertex* s, const Vertex* t) const {
+    return s->getDistance() > t->getDistance();
+}
+
 /********************** Edge  ****************************/
 
 Edge::Edge(Vertex *orig, Vertex *dest, double w, const string &service): orig(orig), dest(dest), weight(w), service(service) {}

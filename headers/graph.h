@@ -45,7 +45,8 @@ public:
     int findVertexIdx(const string &id) const;
 
     double edmondsKarp(const string source, const string target);
-    vector<Vertex*> dijkstra(const string &source);
+    void dijkstra(const string &source, vector<Vertex*> &path);
+    double findBottleneck(vector<Vertex*> &path);
 
     inline bool findAugmentingPath(Vertex* s, Vertex* t);
     inline void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);

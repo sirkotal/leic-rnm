@@ -45,7 +45,8 @@ private:
     unsigned int indegree; // used by topsort
     Edge *path = nullptr;
     std::vector<Edge *> incoming; // incoming edges
-    int dist = 0;
+    int dist = INT_MAX;
+    vector<Vertex*> fromSRC;
 };
 
 /********************** Edge  ****************************/

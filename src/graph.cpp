@@ -295,7 +295,7 @@ double Graph::maxArrivalTrains(const string dest){
     return maxTrainArrival;
 }
 
-vector<Vertex*> Graph::dijkstra(const string &source) {
+void Graph::dijkstra(const string &source, vector<Vertex*> &path) {
     priority_queue<Vertex*, std::vector<Vertex*>, std::greater<Vertex*>> pq;
     Vertex* src = findVertex(source);
     for (auto node : vertexSet){
@@ -303,6 +303,7 @@ vector<Vertex*> Graph::dijkstra(const string &source) {
         node->setDistance(INT_MAX);
     }
 
+    path.push_back(src);
     src->setDistance(0);
     pq.push(src);
 
@@ -322,10 +323,37 @@ vector<Vertex*> Graph::dijkstra(const string &source) {
             else if (serv == "ALFA PENDULAR") {
                 w = 4;
             }
-            if (!v->isVisited() && t->getDistance() != INT_MAX && (t->getDistance() + w < v->getDistance())){
+            if (!v->isVisited() && t->getDistance() != INT_MAX && (t->getDistance() + w < v->getDistance())) {
+                path.push_back(v);
                 v->setDistance(t->getDistance()+w);
                 pq.push(v);
             }
         }
     }
+}
+
+double Graph::findBottleneck(vector<Vertex*> &path) {
+    double bottleneck = MAX;
+    for (int i = 0; i < path.size() - 1; i++) {
+        Vertex* src = path[i];
+        Vertex* dst = path[i+1];
+
+        if (src == nullptr || dst == nullptr) {
+            return -1;
+        }
+
+        double w;
+
+        for (auto e: src->getAdj()) {
+            if (e->getDest()->getStation().getName() == dst->getStation().getName()) {
+                w = e->getWeight();
+                break;
+            }
+        }
+
+
+        bottleneck = min(bottleneck, w);
+    }
+    cout << "{" << bottleneck << "}" << endl;
+    return bottleneck;
 }

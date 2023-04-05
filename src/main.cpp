@@ -17,9 +17,9 @@ int main() {
     /*vector<pair<std::string, std::string>> alpha = manager.maxCapacityTrainsPairs();
     for (auto element: alpha) {
         std::cout << element.first << " -> " << element.second << std::endl;
-    }
+    }*/
 
-    std::cout << manager.maxArrivalTrainsAtCertain("Viana do Castelo") << std::endl;*/
+    /*std::cout << manager.maxArrivalTrainsAtCertain("Viana do Castelo") << std::endl;*/
 
     /*int x = 5;
     manager.topFlowMunicipalities(x);*/

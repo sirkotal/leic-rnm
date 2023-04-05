@@ -25,6 +25,9 @@ public:
 private:
     Graph* railway;
 
+    void buildGraphviz(const string &filename);
+
+    void buildGraphvizWithFlows(const string &filename);
 };
 
 #endif

@@ -2,11 +2,15 @@
 
 #define networkF "../data/network.csv"
 #define stationF "../data/stations.csv"
+#define grapViwerFile "../graph_viewer/graph.gv"
+#define grapViwerMaxTrainFile "../graph_viewer/graph_maxTrain.gv"
+#define grapViwerMaxArrivalTrainsAt "../graph_viewer/graph_MaxArrivalTrainsAt.gv"
 
 Manager::Manager() {
     this->railway = new Graph();
     buildRailway(stationF);
     buildNetwork(networkF);
+    buildGraphviz(grapViwerFile);
 }
 
 Manager::~Manager() {
@@ -49,8 +53,10 @@ void Manager::buildNetwork(const string& filename) {
 
     ifstream thefile(filename);
 
+
     if (thefile.is_open())
     {
+
         string line;
         getline(thefile, line);
 
@@ -63,6 +69,7 @@ void Manager::buildNetwork(const string& filename) {
             double cap = stod(capacity);
 
             railway->addBidirectionalEdge(src, tar, cap/2, service);
+
         }
         thefile.close();
     }
@@ -72,6 +79,53 @@ void Manager::buildNetwork(const string& filename) {
     }
 }
 
+
+void Manager::buildGraphviz(const string& filename) {
+    ofstream dotfile(filename);
+
+
+    // Write the graph header
+    dotfile << "digraph G {" << endl << "layout: neato;" << endl << endl;
+
+
+    for(auto i : this->railway->getVertexSet())
+    {
+        for(auto j : i->getAdj())
+        {
+            dotfile << "\t\"" << j->getOrig()->getStation().getName() << "\" -> \"" << j->getDest()->getStation().getName() << "\" [label=\""
+            << j->getService() << " (" << j->getWeight() << ")\"];\n";
+        }
+    }
+
+
+    dotfile << "}";
+    dotfile.close();
+}
+
+void Manager::buildGraphvizWithFlows(const string &filename) {
+    ofstream dotfile(filename);
+
+
+    // Write the graph header
+    dotfile << "digraph G {" << endl << "layout: neato;" << endl << endl;
+
+
+    for(auto i : this->railway->getVertexSet())
+    {
+        for(auto j : i->getAdj())
+        {
+            if(j->getFlow())
+            dotfile << "\t\"" << j->getOrig()->getStation().getName() << "\" -> \"" << j->getDest()->getStation().getName() << "\" [label=\"Flow:"
+                    << j->getFlow() << " | Cap:" << j->getWeight() << "\"," << " color=red,"
+                                                                             << " penwidth=" << j->getFlow() << "];\n";
+        }
+    }
+
+
+    dotfile << "}";
+    dotfile.close();
+}
+
 void Manager::testing() {
     cout << railway->getNumVertex() << endl;
     cout << railway->getNumEdges() << endl;
@@ -79,7 +133,9 @@ void Manager::testing() {
 }
 
 double Manager::maxTrains(const string source, const string destination) {
-    return railway->edmondsKarp(source, destination);
+    double maxNumTrains = railway->edmondsKarp(source, destination);
+    buildGraphvizWithFlows(grapViwerMaxTrainFile);
+    return maxNumTrains;
 }
 
 vector<pair<string,string>> Manager::maxCapacityTrainsPairs() {
@@ -96,5 +152,7 @@ void Manager::topFlowMunicipalities(int &k) {
 
 
 double Manager::maxArrivalTrainsAtCertain(const string dest){
-    return railway->maxArrivalTrains(dest);
+    double maxArrivalNum = railway->maxArrivalTrains(dest);
+    buildGraphvizWithFlows(grapViwerMaxArrivalTrainsAt);
+    return maxArrivalNum;
 }

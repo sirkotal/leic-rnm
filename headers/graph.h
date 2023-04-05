@@ -63,6 +63,7 @@ public:
 
 private:
     vector<Vertex*> vertexSet;    // vertex set
+    bool removeVertex(const string &target);
 };
 
 #endif

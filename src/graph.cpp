@@ -29,6 +29,30 @@ bool Graph::addVertex(const Station &station) {
     return true;
 }
 
+bool Graph::removeVertex(const string &target) {
+    Vertex* node = findVertex(target);
+
+    if (node == nullptr) {
+        return false;
+    }
+
+    for (auto e : node->getAdj()) {
+        auto w = e->getDest();
+        w->removeEdge(node->getStation().getName());
+    }
+
+    for (auto itr = vertexSet.begin(); itr != vertexSet.end(); itr++) {
+        if ((*itr)->getStation().getName() == target) {
+            vertexSet.erase(itr);
+            itr--;
+            break;
+        }
+    }
+
+    delete node;
+    return true;
+}
+
 bool Graph::addEdge(const string &source, const string &dest, double weight, const string &serv) {
     auto v1 = findVertex(source);
     auto v2 = findVertex(dest);
@@ -256,11 +280,17 @@ double Graph::maxArrivalTrains(const string dest){
 
     addVertex(motherSrc->getStation());
 
+    for(auto i: this->vertexSet)
+        for(auto j: i->getAdj())
+            j->setFlow(0);
+
     for(auto i : this->vertexSet){
-        if((!i->getStation().operator==(motherSrc->getStation())) && (i->getAdj().size() == 1))
+        if((!i->getStation().operator==(this->findVertex(dest)->getStation())) && (i->getAdj().size() == 1))
             addEdge(motherSrc->getStation().getName(), i->getStation().getName(), MAX, "ALL");
     }
 
-    return edmondsKarp(motherSrc->getStation().getName(), dest);
+    double maxTrainArrival = edmondsKarp(motherSrc->getStation().getName(), dest);
 
+    removeVertex(motherSrc->getStation().getName());
+    return maxTrainArrival;
 }

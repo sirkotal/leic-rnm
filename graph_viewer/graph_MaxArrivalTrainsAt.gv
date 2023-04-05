@@ -1,0 +1,26 @@
+digraph G {
+layout: neato;
+
+	"Porto Campanhã" -> "Trofa" [label="Flow:1 | Cap:5", color=red, penwidth=1];
+	"Nine" -> "Viana do Castelo" [label="Flow:2 | Cap:2", color=red, penwidth=2];
+	"Pombal" -> "Coimbra B" [label="Flow:1 | Cap:3", color=red, penwidth=1];
+	"Famalicão" -> "Trofa" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Aveiro - Vouga" -> "Espinho" [label="Flow:1 | Cap:5", color=red, penwidth=1];
+	"Ferreiros" -> "Braga" [label="Flow:1 | Cap:4", color=red, penwidth=1];
+	"Entroncamento" -> "Pombal" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Braga" -> "Famalicão" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Espinho" -> "Porto Campanhã" [label="Flow:1 | Cap:3", color=red, penwidth=1];
+	"Aveleda" -> "Mazagão" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Coimbra B" -> "Aveiro - Vouga" [label="Flow:1 | Cap:4", color=red, penwidth=1];
+	"Mazagão" -> "Ferreiros" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Ruílhe" -> "Tadim" [label="Flow:1 | Cap:5", color=red, penwidth=1];
+	"Tadim" -> "Aveleda" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Tramagal" -> "Praia do Ribatejo" [label="Flow:1 | Cap:3", color=red, penwidth=1];
+	"Arentim" -> "Ruílhe" [label="Flow:1 | Cap:5", color=red, penwidth=1];
+	"Couto de Cambeses" -> "Arentim" [label="Flow:1 | Cap:4", color=red, penwidth=1];
+	"Barquinha" -> "Entroncamento" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Almourol" -> "Tancos" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Trofa" -> "Nine" [label="Flow:2 | Cap:2", color=red, penwidth=2];
+	"Praia do Ribatejo" -> "Almourol" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Tancos" -> "Barquinha" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+}

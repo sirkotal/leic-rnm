@@ -4,6 +4,7 @@
 #define stationF "../data/stations.csv"
 #define grapViwerFile "../graph_viewer/graph.gv"
 #define grapViwerMaxTrainFile "../graph_viewer/graph_maxTrain.gv"
+#define grapViewerMaxReducted "../graph_viewer/graph_maxTrainWithReduced.gv"
 #define grapViwerMaxArrivalTrainsAt "../graph_viewer/graph_MaxArrivalTrainsAt.gv"
 
 Manager::Manager() {
@@ -121,6 +122,28 @@ void Manager::buildGraphvizWithFlows(const string &filename) {
         }
     }
 
+    dotfile << "}";
+    dotfile.close();
+}
+
+void Manager::buildGraphvizWithFlowsSecondaryRailway(const string &filename) {
+    ofstream dotfile(filename);
+
+
+    // Write the graph header
+    dotfile << "digraph G {" << endl << "layout: neato;" << endl << endl;
+
+
+    for(auto i : this->reducedRailway->getVertexSet())
+    {
+        for(auto j : i->getAdj())
+        {
+            if(j->getFlow())
+                dotfile << "\t\"" << j->getOrig()->getStation().getName() << "\" -> \"" << j->getDest()->getStation().getName() << "\" [label=\"Flow:"
+                        << j->getFlow() << " | Cap:" << j->getWeight() << "\"," << " color=red,"
+                        << " penwidth=" << j->getFlow() << "];\n";
+        }
+    }
 
     dotfile << "}";
     dotfile.close();
@@ -150,14 +173,6 @@ void Manager::topFlowMunicipalities(int &k) {
     }
 }
 
-void Manager::topFlowDistricts(int &k) {
-    vector<pair<string, double>> vct = railway->topFlowDistricts();
-
-    for (int i = 0; i < k; i++) {
-        cout << vct[i].first << " -> " << vct[i].second << endl;
-    }
-}
-
 
 double Manager::maxArrivalTrainsAtCertain(const string dest){
     double maxArrivalNum = railway->maxArrivalTrains(dest);
@@ -175,4 +190,41 @@ int Manager::maxTrainsMinCost(const string &src, const string &dst) {
     int cost = railway->findVertex(dst)->getDistance();
     cout << "|" << cost << "|" << endl;
     return cost * railway->findBottleneck(path);
+}
+
+double Manager::maxTrainsWithReducedRailway(const string source, const string destination) {
+    this->reducedRailway = this->railway;
+    vector<Vertex *> path;
+    this->railway->edmondsKarp(source, destination);
+    map<int, Edge *> vertexMap;
+    int counter = 0;
+    for(auto i : this->railway->getVertexSet())
+    {
+        for(auto j: i->getAdj())
+        {
+            if(j->getFlow())
+            {
+                vertexMap[counter] = j;
+                counter++;
+            }
+        }
+    }
+
+    for(int i = 0;i< vertexMap.size(); i++){
+        cout << i << ": FROM: " << vertexMap.at(i)->getOrig()->getStation().getName()  << " | TO: "<< vertexMap.at(i)->getDest()->getStation().getName() << endl;
+    }
+    cout << "Which connection is interdict? (type the nr of the connection)";
+
+    int numberPick;
+    cin >> numberPick;
+
+    for(auto i : reducedRailway->getVertexSet())
+    {
+        if(i->getStation().operator==(vertexMap[numberPick]->getOrig()->getStation()))
+            i->removeEdge(vertexMap[numberPick]->getDest()->getStation().getName());
+    }
+
+    double maxNumTrains = reducedRailway->edmondsKarp(source, destination);
+    buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
+    return maxNumTrains;
 }

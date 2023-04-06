@@ -221,7 +221,15 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     for(auto i : reducedRailway->getVertexSet())
     {
         if(i->getStation().operator==(vertexMap[numberPick]->getOrig()->getStation()))
+        {
             i->removeEdge(vertexMap[numberPick]->getDest()->getStation().getName());
+        }
+
+        if(i->getStation().operator==(vertexMap[numberPick]->getDest()->getStation()))
+        {
+            i->removeEdge(vertexMap[numberPick]->getOrig()->getStation().getName());
+        }
+
     }
 
     double maxNumTrains = reducedRailway->edmondsKarp(source, destination);

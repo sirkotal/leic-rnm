@@ -95,6 +95,14 @@ bool Vertex::operator()(const Vertex* s, const Vertex* t) const {
     return s->getDistance() > t->getDistance();
 }
 
+Vertex* Vertex::getSRC() {
+    return this->src;
+}
+
+void Vertex::setSRC(Vertex *v) {
+    this->src = v;
+}
+
 /********************** Edge  ****************************/
 
 Edge::Edge(Vertex *orig, Vertex *dest, double w, const string &service): orig(orig), dest(dest), weight(w), service(service) {}

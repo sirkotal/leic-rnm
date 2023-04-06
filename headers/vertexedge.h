@@ -35,6 +35,9 @@ public:
 
     bool operator()(const Vertex* s, const Vertex* t) const;
 
+    Vertex* getSRC();
+    void setSRC(Vertex *v);
+
 private:
     Station station;
     //int id;                // identifier
@@ -46,7 +49,7 @@ private:
     Edge *path = nullptr;
     std::vector<Edge *> incoming; // incoming edges
     int dist = INT_MAX;
-    vector<Vertex*> fromSRC;
+    Vertex* src = nullptr;
 };
 
 /********************** Edge  ****************************/

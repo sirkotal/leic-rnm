@@ -156,3 +156,15 @@ double Manager::maxArrivalTrainsAtCertain(const string dest){
     buildGraphvizWithFlows(grapViwerMaxArrivalTrainsAt);
     return maxArrivalNum;
 }
+
+int Manager::maxTrainsMinCost(const string &src, const string &dst) {
+    vector<Vertex*> path;
+    railway->dijkstra(src, dst, path);
+    for (auto element: path) {
+        cout << element->getStation().getName() << ", ";
+    }
+    cout << endl;
+    int cost = railway->findVertex(dst)->getDistance();
+    cout << "|" << cost << "|" << endl;
+    return cost * railway->findBottleneck(path);
+}

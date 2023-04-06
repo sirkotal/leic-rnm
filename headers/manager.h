@@ -22,6 +22,8 @@ public:
 
     double maxArrivalTrainsAtCertain(const string dest);
 
+    int maxTrainsMinCost(const string &src, const string &dst);
+
 private:
     Graph* railway;
 

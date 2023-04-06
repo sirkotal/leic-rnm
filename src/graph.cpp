@@ -294,3 +294,80 @@ double Graph::maxArrivalTrains(const string dest){
     removeVertex(motherSrc->getStation().getName());
     return maxTrainArrival;
 }
+
+struct PriorityCompare {
+    bool operator()(const Vertex* s, const Vertex* t) {
+        return s->getDistance() > t->getDistance();
+    }
+};
+
+void Graph::dijkstra(const string &source, const string &target, vector<Vertex*> &path) {
+    priority_queue<Vertex*, vector<Vertex*>, PriorityCompare> pq;
+    Vertex* src = findVertex(source);
+    for (auto node : vertexSet){
+        node->setVisited(false);
+        node->setDistance(INT_MAX);
+    }
+
+    src->setDistance(0);
+    pq.push(src);
+
+    while (!pq.empty()) {
+        Vertex* t = pq.top();
+        //cout << t->getStation().getName() << endl;
+        pq.pop();
+
+        t->setVisited(true);
+
+        for (auto e : t->getAdj()) {
+            Vertex *v = e->getDest();
+            string serv = e->getService();
+            int w;
+            if (serv == "STANDARD") {
+                w = 2;
+            }
+            else if (serv == "ALFA PENDULAR") {
+                w = 4;
+            }
+            if (!v->isVisited() && t->getDistance() != INT_MAX && (t->getDistance() + w < v->getDistance())) {
+                v->setSRC(t);
+                v->setDistance(t->getDistance()+w);
+                pq.push(v);
+            }
+        }
+    }
+    path.clear();
+    Vertex* trg = findVertex(target);
+    while (trg != nullptr) {
+        path.push_back(trg);
+        trg = trg->getSRC();
+    }
+    reverse(path.begin(), path.end());
+}
+
+double Graph::findBottleneck(vector<Vertex*> &path) {
+    double bottleneck = MAX;
+    for (int i = 0; i < path.size() - 1; i++) {
+        Vertex* src = path[i];
+        Vertex* dst = path[i+1];
+
+        if (src == nullptr || dst == nullptr) {
+            return -1;
+        }
+
+        double w;
+
+        for (auto e: src->getAdj()) {
+            if (e->getDest()->getStation().getName() == dst->getStation().getName()) {
+                w = e->getWeight();
+                break;
+            }
+        }
+
+
+        bottleneck = min(bottleneck, w);
+        cout << "[" << bottleneck << "]";
+    }
+    cout << endl << "{" << bottleneck << "}" << endl;
+    return bottleneck;
+}

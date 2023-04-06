@@ -17,19 +17,26 @@ public:
     Vertex(const Station &station);
 
     std::vector<Edge *> getAdj() const;
-    Station getStation();
+    Station getStation() const;
     bool isVisited() const;
     bool isProcessing() const;
     unsigned int getIndegree() const;
     Edge *getPath() const;
     std::vector<Edge *> getIncoming() const;
+    int getDistance() const;
 
     void setVisited(bool visited);
     void setProcesssing(bool processing);
     void setIndegree(unsigned int indegree);
     void setPath(Edge *path);
+    void setDistance(int num);
     Edge * addEdge(Vertex *dest, double w, const string &service);
     bool removeEdge(string destID);
+
+    bool operator()(const Vertex* s, const Vertex* t) const;
+
+    Vertex* getSRC();
+    void setSRC(Vertex *v);
 
 private:
     Station station;
@@ -41,6 +48,8 @@ private:
     unsigned int indegree; // used by topsort
     Edge *path = nullptr;
     std::vector<Edge *> incoming; // incoming edges
+    int dist = INT_MAX;
+    Vertex* src = nullptr;
 };
 
 /********************** Edge  ****************************/

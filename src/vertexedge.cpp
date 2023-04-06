@@ -39,12 +39,16 @@ bool Vertex::removeEdge(string destID) {
     return removedEdge;
 }
 
-Station Vertex::getStation() {
+Station Vertex::getStation() const{
     return this->station;
 }
 
 std::vector<Edge*> Vertex::getAdj() const {
     return this->adj;
+}
+
+int Vertex::getDistance() const {
+    return this->dist;
 }
 
 bool Vertex::isVisited() const {
@@ -81,6 +85,22 @@ void Vertex::setIndegree(unsigned int indegree) {
 
 void Vertex::setPath(Edge *path) {
     this->path = path;
+}
+
+void Vertex::setDistance(int num) {
+    this->dist = num;
+}
+
+/*bool Vertex::operator()(const Vertex* s, const Vertex* t) const {
+    return s->getDistance() > t->getDistance();
+}*/
+
+Vertex* Vertex::getSRC() {
+    return this->src;
+}
+
+void Vertex::setSRC(Vertex *v) {
+    this->src = v;
 }
 
 /********************** Edge  ****************************/

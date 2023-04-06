@@ -1,5 +1,8 @@
 #include <iostream>
 #include "manager.h"
+#include "station.h"
+#include "vertexedge.h"
+#include "graph.h"
 
 void invalidInput(){
     std::cout << '\n';
@@ -9,42 +12,37 @@ void invalidInput(){
 }
 
 int main() {
-    Manager manager = Manager();
-    manager.testing();
-    cout << manager.maxTrains("Lisboa Santa Apolónia", "Porto Campanhã") << endl;
-    cout << manager.maxTrains("Casa Branca", "Portalegre") << endl;
-
-    /*vector<pair<std::string, std::string>> alpha = manager.maxCapacityTrainsPairs();
-    for (auto element: alpha) {
-        std::cout << element.first << " -> " << element.second << std::endl;
-    }*/
-
-    /*std::cout << manager.maxArrivalTrainsAtCertain("Viana do Castelo") << std::endl;*/
-
-    int x = 5;
-    manager.topFlowDistricts(x);
-    cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl;
-    std::cout << manager.maxTrainsMinCost("Lisboa Oriente", "Porto Campanhã") << std::endl;
-    
     char choice;
-
+    Manager manager = Manager();
     do{
         std::cout << """"
-                   "----------------------------------------\n"
-                   "~ Welcome to the Fast Railway Service! ~\n"
-                   "----------------------------------------\n"
+                   "----------------------------------------------------------\n"
+                   "~          Welcome to the Fast Railway Service!          ~\n"
+                   "----------------------------------------------------------\n"
                    "How can we help you today?\nInsert the number of the operation.\n"
-                   "--------------------\n"
-                   "| 1 - Option 1     |\n"
-                   "| 2 - Option 2     |\n"
-                   "| 0 - Exit Program |\n"
-                   "--------------------\n"
+                   "------------------------------------------------------------------------------------------------\n"
+                   "| 1 - Calculate no of trains that can simultaneously travel between two specific stations.      |\n"
+                   "| 2 - Determine no of trains that can arrive together at a specific station.                    |\n"
+                   "| 3 - The same as 2, but considering failures on the route.                                     |\n"
+                   "| 4 - Compute pairs of stations that need more trains between them.                             |\n"
+                   "| 5 - Estimate which stations need more maintenance.                                            |\n"
+                   "| 6 - Evaluate which stations are the most affected by failures on a route.     (TODO)          |\n"
+                   "| 0 - Exit Program                                                                              |\n"
+                   "------------------------------------------------------------------------------------------------\n"
                    "> ";
     std::cin >> choice;
+    string src, dst;
     if (!std::cin.fail()){
         switch(choice){
             case '1':
-                std::cout << "Implement opt 1\n";
+                std::cin.ignore(); //clear the buffer
+                std::cout << "  Choose source station.\n        >";
+                std::getline(std::cin, src);
+                std::cout << "  Choose destination station.\n       >";
+                std::getline(std::cin, dst);
+                std::cout << "The maximum number of trains that can travel between " << src << " and " << dst << " is: ";
+                std::cout << manager.maxTrains(src, dst);
+
                 break;
             case '2':
                 std::cout << "Implement opt 2\n";
@@ -60,20 +58,3 @@ int main() {
     } while (choice != '0');
     return 0;
 }
-
-/*
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠴⢿⣧⣤⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣴⣿⣧⣆⣘⡄⢹⣿⣷⣆⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣿⣿⣿⣷⣾⣿⣿⣿⣷⡀⠀⠀⠀⠀⠀ " << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢿⣷⠀⠀⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏⠀⣴⣿⣿⠀⠀⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣴⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⢀⣀⡀⣾⡿⠀⠉⠉⠛⠋⠛⠛⠚⣿⣿⣿⣿⣿⣿⣷⣄⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⢠⣍⠹⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⢹⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⢿⣷⣾⣿⣿⠀⠀⠀⠀⠀⠀⢀⣴⣾⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⢹⣟⢻⣿⣄⠀⠀⠀⠀⣰⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠻⠿⠟⠁⠑⢶⣤⣴⣿⣿⣿⣷⣶⣬⣿⣿⣿⡿⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠛⠛⢛⣿⣿⣿⣿⡿⠛⠁⠀⠀⠀⠀" << std::endl;
-std::cout <<"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠻⢿⡿⠟⠀⠀⠀⠀⠀⠀⠀⠀⠀" << std::endl;
-*/
-

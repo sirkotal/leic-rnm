@@ -295,8 +295,14 @@ double Graph::maxArrivalTrains(const string dest){
     return maxTrainArrival;
 }
 
+struct PriorityCompare {
+    bool operator()(const Vertex* s, const Vertex* t) {
+        return s->getDistance() > t->getDistance();
+    }
+};
+
 void Graph::dijkstra(const string &source, const string &target, vector<Vertex*> &path) {
-    priority_queue<Vertex*, std::vector<Vertex*>, std::greater<Vertex*>> pq;
+    priority_queue<Vertex*, vector<Vertex*>, PriorityCompare> pq;
     Vertex* src = findVertex(source);
     for (auto node : vertexSet){
         node->setVisited(false);
@@ -308,11 +314,12 @@ void Graph::dijkstra(const string &source, const string &target, vector<Vertex*>
 
     while (!pq.empty()) {
         Vertex* t = pq.top();
+        //cout << t->getStation().getName() << endl;
         pq.pop();
 
         t->setVisited(true);
 
-        for (auto e : t->getAdj()){
+        for (auto e : t->getAdj()) {
             Vertex *v = e->getDest();
             string serv = e->getService();
             int w;
@@ -323,15 +330,9 @@ void Graph::dijkstra(const string &source, const string &target, vector<Vertex*>
                 w = 4;
             }
             if (!v->isVisited() && t->getDistance() != INT_MAX && (t->getDistance() + w < v->getDistance())) {
-                if (t->getStation().getName() == target) {
-                    v->setDistance(t->getDistance()+w);
-                    pq.push(v);
-                }
-                else {
-                    v->setSRC(t);
-                    v->setDistance(t->getDistance()+w);
-                    pq.push(v);
-                }
+                v->setSRC(t);
+                v->setDistance(t->getDistance()+w);
+                pq.push(v);
             }
         }
     }

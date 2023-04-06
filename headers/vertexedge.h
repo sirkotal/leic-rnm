@@ -17,7 +17,7 @@ public:
     Vertex(const Station &station);
 
     std::vector<Edge *> getAdj() const;
-    Station getStation();
+    Station getStation() const;
     bool isVisited() const;
     bool isProcessing() const;
     unsigned int getIndegree() const;

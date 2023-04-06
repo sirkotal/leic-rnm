@@ -19,6 +19,7 @@ public:
     double maxTrains(const string source, const string destination);
     vector<pair<string,string>> maxCapacityTrainsPairs();
     void topFlowMunicipalities(int &k);
+    void topFlowDistricts(int &k);
 
     double maxArrivalTrainsAtCertain(const string dest);
 

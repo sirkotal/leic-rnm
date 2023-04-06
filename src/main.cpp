@@ -21,8 +21,8 @@ int main() {
 
     /*std::cout << manager.maxArrivalTrainsAtCertain("Viana do Castelo") << std::endl;*/
 
-    /*int x = 5;
-    manager.topFlowMunicipalities(x);*/
+    int x = 5;
+    manager.topFlowDistricts(x);
     cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl;
     std::cout << manager.maxTrainsMinCost("Lisboa Oriente", "Porto Campanhã") << std::endl;
     

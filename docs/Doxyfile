@@ -44,7 +44,7 @@ PROJECT_NUMBER         = 1.0.0
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "Development of an Railroad Network Management system, capable of helping manage the Portuguese train system.
+PROJECT_BRIEF          = "Development of a Railroad Network Management system, capable of helping manage the Portuguese train system.
 "
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included

@@ -150,6 +150,14 @@ void Manager::topFlowMunicipalities(int &k) {
     }
 }
 
+void Manager::topFlowDistricts(int &k) {
+    vector<pair<string, double>> vct = railway->topFlowDistricts();
+
+    for (int i = 0; i < k; i++) {
+        cout << vct[i].first << " -> " << vct[i].second << endl;
+    }
+}
+
 
 double Manager::maxArrivalTrainsAtCertain(const string dest){
     double maxArrivalNum = railway->maxArrivalTrains(dest);

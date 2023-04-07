@@ -53,8 +53,13 @@ int main() {
                 std::cout << manager.maxTrains(src, dst) << "\n";
                 break;
             case '2':
+
                 break;
             case '3':
+                std::cin.ignore(); //clear the buffer
+                std::cout << "  Insert which top-k you want to be presented.\n        >";
+                std::cin >> k;
+                manager.topFlowMunicipalities(k);
                 break;
             case '4':
                 std::cin.ignore(); //clear the buffer
@@ -71,7 +76,6 @@ int main() {
                 std::getline(std::cin, dst);
                 std::cout << "The maximum number of trains that can travel between " << src << " and " << dst << " with minimum cost to the company is: ";
                 std::cout << manager.maxTrainsMinCost(src, dst) << "\n";
-                break;
                 break;
             case '6':
                 break;

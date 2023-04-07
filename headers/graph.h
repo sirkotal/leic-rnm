@@ -105,24 +105,68 @@ public:
      */
     inline bool findAugmentingPath(Vertex* s, Vertex* t);
 
-
+    /**
+     * @brief Tests if the destination vertex is visited and if there is remaining capacity in the edge
+     * @param q The queue of visited vertexes
+     * @param e The edge that leaves the source vertex
+     * @param w The destination vertex
+     * @param residual The residual capacity of the edge
+     */
     inline void testAndVisit(std::queue<Vertex*> &q, Edge* e, Vertex* w, double residual);
+
+    /**
+     * @brief Finds the minimum flow in the path
+     * @param s The source vertex
+     * @param t The target vertex
+     * @return The minimum flow in the given path
+     */
     inline double findMinResidualAlongPath(Vertex* s, Vertex* t);
+
+    /**
+     * @brief Updates the flow in the path
+     * @param s The source vertex
+     * @param t The target vertex
+     * @param f The minimum flow in the given path
+     */
     inline void augmentFlowAlongPath(Vertex* s, Vertex* t, double f);
 
+    /**
+     * @brief Gets the pair(s) of stations that require the maximum amount of trains to travel between them
+     * @return A vector with the pair(s) of stations with maximum flow between them
+     */
     vector<pair<string,string>> maxTrainsPairs();
+
+    /**
+     * @brief Finds the municipalities with the most importance in the network in terms of flow centrality
+     * @return A vector of municipalities sorted by flow centrality
+     */
     vector<pair<string, double>> topFlowMunicipalities();
+
+    /**
+     * @brief Finds the districts with the most importance in the network in terms of flow centrality
+     * @return A vector of districts sorted by flow centrality
+     */
     vector<pair<string, double>> topFlowDistricts();
 
-
-    /*
-    * Calculate the max trains that can arrive at a certain destination, using all the network
-    */
+    /**
+     * @brief Gets the maximum number of trains that can simultaneously arrive at a given station, using the entire railway network
+     * @param dest The target station
+     * @return The maximum number of trains that can arrive at the designated station simultaneously
+     */
     double maxArrivalTrains(const string dest);
 
 private:
     vector<Vertex*> vertexSet;    // vertex set
+
+    /**
+     * @brief Removes a vertex from the graph
+     * @param target The vertex we want to remove
+     * @return True if the vertex was successfully removed; if the vertex does not exist, it returns false
+     */
     bool removeVertex(const string &target);
 };
 
 #endif
+
+// Using the flow centrality, find the most important municipalities and districts in the network
+// The sum of the maximum flow between all pairs of stations in the municipality/district

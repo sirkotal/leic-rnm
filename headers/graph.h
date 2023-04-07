@@ -13,6 +13,9 @@ class Vertex;
 
 using namespace std;
 
+/**
+ * @brief Represents the railway network
+ */
 class Graph {
 public:
     /**
@@ -156,6 +159,9 @@ public:
     double maxArrivalTrains(const string dest);
 
 private:
+    /**
+     * @brief A vector containing all of the graph's vertexes
+     */
     vector<Vertex*> vertexSet;    // vertex set
 
     /**

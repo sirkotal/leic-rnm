@@ -6,7 +6,7 @@
 using namespace std;
 
 /**
- * @brief Represents a station in the railway network
+ * @brief Represents a station
  */
 class Station {
 public:

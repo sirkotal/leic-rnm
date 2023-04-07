@@ -55,6 +55,7 @@ int main() {
                 std::cout << manager.maxTrains(src, dst) << "\n";
                 break;
             case '2':
+                    std::cout << "NOTE: This function may take a while... (~1 min)\n";
                     pairs = manager.maxCapacityTrainsPairs();
                     std::cout << "The pairs of stations that need more trains between them are: \n";
                     for (auto & pair : pairs)

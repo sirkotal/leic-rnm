@@ -182,15 +182,52 @@ class Edge {
 public:
     Edge(Vertex *orig, Vertex *dest, double w, const string &service);
 
+    /**
+     * @brief Gets the destination vertex
+     * @return The destination vertex
+     */
     Vertex * getDest() const;
+
+    /**
+     * @brief Gets the edge's weight/capacity
+     * @return The edge's weight
+     */
     double getWeight() const;
+
+    /**
+     * @brief Gets the origin vertex
+     * @return The origin vertex
+     */
     Vertex * getOrig() const;
+
+    /**
+     * @brief Gets the service provided in the edge
+     * @return The edge's service type
+     */
     string getService() const;
+
+    /**
+     * @brief Gets the reverse edge
+     * @return The reverse edge
+     */
     Edge *getReverse() const;
+
+    /**
+     * @brief Gets the edge's flow
+     * @return The edge's flow
+     */
     double getFlow() const;
 
-    void setSelected(bool selected);
+    /**
+     * @brief Sets the reverse edge
+     * @param reverse The reverse edge
+     */
     void setReverse(Edge *reverse);
+
+    /**
+     * @brief Sets the edge's flow
+     * @param flow The edge's flow
+     */
     void setFlow(double flow);
 private:
     /**

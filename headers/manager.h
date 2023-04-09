@@ -26,6 +26,8 @@ public:
 
     double maxTrainsWithReducedRailway(const string source, const string destination);
 
+    void mostImpactedStations(int &k);
+
 private:
     Graph* railway;
     Graph* reducedRailway;

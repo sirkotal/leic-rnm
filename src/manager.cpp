@@ -228,3 +228,31 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
     return maxNumTrains;
 }
+
+bool compFunc(const pair<string, double> f, const pair<string, double> s) {
+    return f.second > s.second;
+}
+
+void Manager::mostImpactedStations(int &k) {
+    if (k > railway->getNumVertex() || k < 0) {
+        cout << "Invalid Input!" << endl;
+        return;
+    }
+
+    vector<pair<string, double>> impact;
+
+    for (auto v : railway->getVertexSet()) {
+        double old_max = railway->maxArrivalTrains(v->getStation().getName());
+        // TODO
+        double new_max = reducedRailway->maxArrivalTrains(v->getStation().getName());
+
+        impact.push_back(make_pair(v->getStation().getName(), old_max - new_max));
+    }
+
+    sort(impact.begin(), impact.end(), compFunc);
+
+    for (int i = 0; i < k; i++) {
+        cout << impact[i].first << " -> " << impact[i].second << endl;
+    }
+
+}

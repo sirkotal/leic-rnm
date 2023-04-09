@@ -1,15 +1,15 @@
 #include "manager.h"
 
-#define networkF "../data/network.csv"
-#define stationF "../data/stations.csv"
+/*#define networkF "../data/network.csv"
+#define stationF "../data/stations.csv"*/
 #define grapViwerFile "../graph_viewer/graph.gv"
 #define grapViwerMaxTrainFile "../graph_viewer/graph_maxTrain.gv"
 #define grapViwerMaxArrivalTrainsAt "../graph_viewer/graph_MaxArrivalTrainsAt.gv"
 
 Manager::Manager() {
     this->railway = new Graph();
-    buildRailway(stationF);
-    buildNetwork(networkF);
+    /*buildRailway(stationF);
+    buildNetwork(networkF);*/
     buildGraphviz(grapViwerFile);
 }
 

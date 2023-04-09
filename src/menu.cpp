@@ -4,8 +4,7 @@
 #include "manager.h"
 #include "menu.h"
 using namespace std;
-Menu::Menu() {
-}
+Menu::Menu(): manager(Manager()) {}
 
 void Menu::printMainMenu() {
     std::cout << """"
@@ -18,6 +17,8 @@ void Menu::printMainMenu() {
                  "| 1 - Basic Services                                                                                  |\n"
                  "| 2 - Cost Optimization                                                                               |\n"
                  "| 3 - Reliability and Sensitivity to Line Failures                                                    |\n"
+                 "|                                                                                                     |\n"
+                 "| R - Create the Railway Network                                                                                                    |\n"
                  "|                                                                                                     |\n"
                  "| 0 - Exit Program                                                                                    |\n"
                  "-------------------------------------------------------------------------------------------------------\n"
@@ -166,4 +167,9 @@ void Menu::switchSubMenu3(char option) {
             std::this_thread::sleep_for(std::chrono::seconds(2));
             break;
     }
+}
+
+void Menu::dataBuilder(const string &r, const string &n) {
+    manager.buildRailway(r);
+    manager.buildNetwork(n);
 }

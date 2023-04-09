@@ -11,6 +11,7 @@ void invalidInput(){
 
 int main() {
     char choice_menu, choice_submenu;
+    string railway, network;
     Menu menu = Menu();
     do{
         menu.printMainMenu();
@@ -38,6 +39,15 @@ int main() {
                 if (!std::cin.fail()){
                     menu.switchSubMenu3(choice_submenu);
                 }
+                break;
+            case 'R':
+                cout << "Insert your stations file's path: ";
+                getline(cin, railway);
+                cout << endl;
+                cout << "Insert your network file's path: ";
+                getline(cin, network);
+
+                menu.dataBuilder(railway, network);
                 break;
             case '0':
                 cout << "So sorry to see you go! :(\n";

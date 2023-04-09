@@ -12,6 +12,10 @@ public:
     void switchSubMenu1(char option);
     void switchSubMenu2(char option);
     void switchSubMenu3(char option);
+    void dataBuilder(const string &r, const string &n);
+
+private:
+    Manager manager;
 };
 
 

@@ -42,6 +42,7 @@ int main() {
                 break;
             case 'R':
                 cout << "Insert your stations file's path: ";
+                std::cin.ignore(); //clear the buffer
                 getline(cin, railway);
                 cout << endl;
                 cout << "Insert your network file's path: ";

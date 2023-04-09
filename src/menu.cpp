@@ -18,7 +18,7 @@ void Menu::printMainMenu() {
                  "| 2 - Cost Optimization                                                                               |\n"
                  "| 3 - Reliability and Sensitivity to Line Failures                                                    |\n"
                  "|                                                                                                     |\n"
-                 "| R - Create the Railway Network                                                                                                    |\n"
+                 "| R - Create the Railway Network                                                                      |\n"
                  "|                                                                                                     |\n"
                  "| 0 - Exit Program                                                                                    |\n"
                  "-------------------------------------------------------------------------------------------------------\n"

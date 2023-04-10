@@ -1,0 +1,18 @@
+digraph G {
+layout: neato;
+
+	"Viana do Castelo" -> "Nine" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Nine" -> "Trofa" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"São Frutuoso" -> "São Romão - A" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Contumil" -> "Rio Tinto" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Rio Tinto" -> "Águas Santas" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Portela" -> "São Romão" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"São Romão - A" -> "São Romão" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Águas Santas" -> "Palmilheira" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"São Gemil" -> "Contumil" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Leandro" -> "São Frutuoso" [label="Flow:1 | Cap:3", color=red, penwidth=1];
+	"Trofa" -> "Portela" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Palmilheira" -> "Travagem" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Ermesinde - B" -> "São Gemil" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Travagem" -> "Leandro" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+}

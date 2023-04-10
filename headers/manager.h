@@ -13,6 +13,7 @@ public:
 
     void buildRailway(const string &filename);
     void buildNetwork(const string& filename);
+    void createReducedGraph();
 
     void testing();
 

@@ -12,7 +12,6 @@ Manager::Manager() {
     /*buildRailway(stationF);
     buildNetwork(networkF);*/
     buildGraphviz(grapViwerFile);
-    this->reducedRailway = new Graph(*this->railway);
 }
 
 Manager::~Manager() {
@@ -82,6 +81,9 @@ void Manager::buildNetwork(const string& filename) {
     }
 }
 
+void Manager::createReducedGraph() {
+    this->reducedRailway = new Graph(*this->railway);
+}
 
 void Manager::buildGraphviz(const string& filename) {
     ofstream dotfile(filename);
@@ -206,6 +208,14 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     //this->reducedRailway = new Graph(*this->railway);
     //cout << reducedRailway->getNumVertex() << endl;
     //cout << reducedRailway->getNumEdges() << endl;
+    if (railway->findVertex(source) == nullptr) {
+        cerr << "Insert a valid source station" << endl;
+        return -1;
+    }
+    else if (railway->findVertex(destination) == nullptr) {
+        cerr << "Insert a valid target station" << endl;
+        return -1;
+    }
     vector<Vertex *> path;
     this->railway->edmondsKarp(source, destination);
     map<int, Edge *> vertexMap;
@@ -229,12 +239,12 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     int numLines;
 
     do{
-        cout << "How many lines are interdict?";
+        cout << "How many lines are interdict? ";
         cin >> numLines;
     }
     while(numLines < 0 || numLines > vertexMap.size());
 
-    cout << "Which connection(s) is/are interdict? (type the nr of the connection)" << endl;
+    cout << "Which connection(s) is/are interdict? (type the number of the connection)" << endl;
 
     int numberPick;
     for(int i = 0; i < numLines; i++){
@@ -260,10 +270,11 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
 
     double maxNumTrains = reducedRailway->edmondsKarp(source, destination);
     if(!maxNumTrains){
-        cout << "We can't access" << destination << " from " << source << "with those line(s) interdict" << endl;
+        cout << "We can't access " << destination << " from " << source << " with those line(s) interdict" << endl;
     }
     else
         buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
+    cout << "The maximum number of trains that can travel between " << source << " and " << destination << " is: " << maxNumTrains << endl;
     return maxNumTrains;
 }
 

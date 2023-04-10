@@ -176,9 +176,15 @@ void Menu::switchSubMenu2(char option) {
  */
 void Menu::switchSubMenu3(char option) {
     string src, dst;
+    manager.createReducedGraph();
     switch (option) {
         case '1':
-            std::cout << "TODO\n";
+            std::cin.ignore(); //clear the buffer
+            std::cout << "  Choose source station.\n        >";
+            std::getline(std::cin, src);
+            std::cout << "  Choose destination station.\n       >";
+            std::getline(std::cin, dst);
+            manager.maxTrainsWithReducedRailway(src, dst);
             break;
         case '2':
             std::cout << "TODO\n";

@@ -27,7 +27,7 @@
   <td id="projectalign">
    <div id="projectname">DA - Railroad Network Manager<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">Development of an Railroad Network Management system, capable of helping manage the Portuguese train system.</div>
+   <div id="projectbrief">Development of a Railroad Network Management system, capable of helping manage the Portuguese train system.</div>
   </td>
  </tr>
  </tbody>
@@ -98,49 +98,472 @@ $(document).ready(function(){initNavTree('class_manager.html',''); initResizable
   <div class="headertitle"><div class="title">Manager Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents the interface between the menu and the graph.  
+ <a href="class_manager.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="manager_8h_source.html">manager.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5bc7c636498de4c2042431da653a301c"><td class="memItemLeft" align="right" valign="top"><a id="a5bc7c636498de4c2042431da653a301c" name="a5bc7c636498de4c2042431da653a301c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buildRailway</b> (const string &amp;filename)</td></tr>
+<tr class="memitem:a5bc7c636498de4c2042431da653a301c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a5bc7c636498de4c2042431da653a301c">buildRailway</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:a5bc7c636498de4c2042431da653a301c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a graph containing the railway's train stations.  <a href="class_manager.html#a5bc7c636498de4c2042431da653a301c">More...</a><br /></td></tr>
 <tr class="separator:a5bc7c636498de4c2042431da653a301c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e9df6b900fdcdb445d77380804c6b43"><td class="memItemLeft" align="right" valign="top"><a id="a4e9df6b900fdcdb445d77380804c6b43" name="a4e9df6b900fdcdb445d77380804c6b43"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buildNetwork</b> (const string &amp;filename)</td></tr>
+<tr class="memitem:a4e9df6b900fdcdb445d77380804c6b43"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a4e9df6b900fdcdb445d77380804c6b43">buildNetwork</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:a4e9df6b900fdcdb445d77380804c6b43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Builds a graph containing the railway's connections.  <a href="class_manager.html#a4e9df6b900fdcdb445d77380804c6b43">More...</a><br /></td></tr>
 <tr class="separator:a4e9df6b900fdcdb445d77380804c6b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28e22f047e689ba4d0667983813ef114"><td class="memItemLeft" align="right" valign="top"><a id="a28e22f047e689ba4d0667983813ef114" name="a28e22f047e689ba4d0667983813ef114"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createReducedGraph</b> ()</td></tr>
+<tr class="memdesc:a28e22f047e689ba4d0667983813ef114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a copy of the network's graph. <br /></td></tr>
+<tr class="separator:a28e22f047e689ba4d0667983813ef114"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ce44a229c819433a1b88323f4654730"><td class="memItemLeft" align="right" valign="top"><a id="a3ce44a229c819433a1b88323f4654730" name="a3ce44a229c819433a1b88323f4654730"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>testing</b> ()</td></tr>
+<tr class="memdesc:a3ce44a229c819433a1b88323f4654730"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tests if the graph was successfully created (not meant for the end user) <br /></td></tr>
 <tr class="separator:a3ce44a229c819433a1b88323f4654730"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a246db2c5740c4e98f8a647ea80bec790"><td class="memItemLeft" align="right" valign="top"><a id="a246db2c5740c4e98f8a647ea80bec790" name="a246db2c5740c4e98f8a647ea80bec790"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>maxTrains</b> (const string source, const string destination)</td></tr>
-<tr class="separator:a246db2c5740c4e98f8a647ea80bec790"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93b9b53f9448e19222496dc3be3be3dd"><td class="memItemLeft" align="right" valign="top"><a id="a93b9b53f9448e19222496dc3be3be3dd" name="a93b9b53f9448e19222496dc3be3be3dd"></a>
-vector&lt; pair&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>maxCapacityTrainsPairs</b> ()</td></tr>
+<tr class="memitem:a5b2b5dfec611688d4aa3a0b9fa4bd802"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a5b2b5dfec611688d4aa3a0b9fa4bd802">maxTrains</a> (const string &amp;source, const string &amp;destination)</td></tr>
+<tr class="memdesc:a5b2b5dfec611688d4aa3a0b9fa4bd802"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the maximum flow between a source and a destination vertex using the Edmonds-Karp algorithm.  <a href="class_manager.html#a5b2b5dfec611688d4aa3a0b9fa4bd802">More...</a><br /></td></tr>
+<tr class="separator:a5b2b5dfec611688d4aa3a0b9fa4bd802"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b9b53f9448e19222496dc3be3be3dd"><td class="memItemLeft" align="right" valign="top">vector&lt; pair&lt; string, string &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a93b9b53f9448e19222496dc3be3be3dd">maxCapacityTrainsPairs</a> ()</td></tr>
+<tr class="memdesc:a93b9b53f9448e19222496dc3be3be3dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the pair(s) of stations that require the maximum amount of trains to travel between them.  <a href="class_manager.html#a93b9b53f9448e19222496dc3be3be3dd">More...</a><br /></td></tr>
 <tr class="separator:a93b9b53f9448e19222496dc3be3be3dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a703e549951e7202281e6e741b5fbb13f"><td class="memItemLeft" align="right" valign="top"><a id="a703e549951e7202281e6e741b5fbb13f" name="a703e549951e7202281e6e741b5fbb13f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>topFlowMunicipalities</b> (int &amp;k)</td></tr>
+<tr class="memitem:a703e549951e7202281e6e741b5fbb13f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a703e549951e7202281e6e741b5fbb13f">topFlowMunicipalities</a> (int &amp;k)</td></tr>
+<tr class="memdesc:a703e549951e7202281e6e741b5fbb13f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the top-k municipalities with the most importance in the network in terms of flow centrality.  <a href="class_manager.html#a703e549951e7202281e6e741b5fbb13f">More...</a><br /></td></tr>
 <tr class="separator:a703e549951e7202281e6e741b5fbb13f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b7248e74d609989b6e2268f07f2364f"><td class="memItemLeft" align="right" valign="top"><a id="a1b7248e74d609989b6e2268f07f2364f" name="a1b7248e74d609989b6e2268f07f2364f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>maxArrivalTrainsAtCertain</b> (const string dest)</td></tr>
+<tr class="memitem:ae118584a990f27a8ec621cc240ca2484"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#ae118584a990f27a8ec621cc240ca2484">topFlowDistricts</a> (int &amp;k)</td></tr>
+<tr class="memdesc:ae118584a990f27a8ec621cc240ca2484"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds the top-k districts with the most importance in the network in terms of flow centrality.  <a href="class_manager.html#ae118584a990f27a8ec621cc240ca2484">More...</a><br /></td></tr>
+<tr class="separator:ae118584a990f27a8ec621cc240ca2484"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b7248e74d609989b6e2268f07f2364f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a1b7248e74d609989b6e2268f07f2364f">maxArrivalTrainsAtCertain</a> (const string dest)</td></tr>
+<tr class="memdesc:a1b7248e74d609989b6e2268f07f2364f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum number of trains that can simultaneously arrive at a given station, using the entire railway network.  <a href="class_manager.html#a1b7248e74d609989b6e2268f07f2364f">More...</a><br /></td></tr>
 <tr class="separator:a1b7248e74d609989b6e2268f07f2364f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d5d06069ca0240220d82f24c74c9c4b"><td class="memItemLeft" align="right" valign="top"><a id="a0d5d06069ca0240220d82f24c74c9c4b" name="a0d5d06069ca0240220d82f24c74c9c4b"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>maxTrainsMinCost</b> (const string &amp;src, const string &amp;dst)</td></tr>
+<tr class="memitem:a0d5d06069ca0240220d82f24c74c9c4b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a0d5d06069ca0240220d82f24c74c9c4b">maxTrainsMinCost</a> (const string &amp;src, const string &amp;dst)</td></tr>
+<tr class="memdesc:a0d5d06069ca0240220d82f24c74c9c4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the minimum cost of operating the maximum number of trains possible between two stations.  <a href="class_manager.html#a0d5d06069ca0240220d82f24c74c9c4b">More...</a><br /></td></tr>
 <tr class="separator:a0d5d06069ca0240220d82f24c74c9c4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a410f7c76d4c87e6bbd0eeb982b3e235e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a410f7c76d4c87e6bbd0eeb982b3e235e">maxTrainsWithReducedRailway</a> (const string source, const string destination)</td></tr>
+<tr class="memdesc:a410f7c76d4c87e6bbd0eeb982b3e235e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the maximum number of trains that can simultaneously travel between two stations in a network of reduced connectivity.  <a href="class_manager.html#a410f7c76d4c87e6bbd0eeb982b3e235e">More...</a><br /></td></tr>
+<tr class="separator:a410f7c76d4c87e6bbd0eeb982b3e235e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15de68b5dbc642187004b524ac38ef5d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a15de68b5dbc642187004b524ac38ef5d">mostImpactedStations</a> (int &amp;k)</td></tr>
+<tr class="memdesc:a15de68b5dbc642187004b524ac38ef5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the top-k most affected stations in terms of flow for a set of segment failures.  <a href="class_manager.html#a15de68b5dbc642187004b524ac38ef5d">More...</a><br /></td></tr>
+<tr class="separator:a15de68b5dbc642187004b524ac38ef5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:add8cbc93a9f683418c6ef354dd8ea017"><td class="memItemLeft" align="right" valign="top"><a id="add8cbc93a9f683418c6ef354dd8ea017" name="add8cbc93a9f683418c6ef354dd8ea017"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buildGraphviz</b> (const string &amp;filename)</td></tr>
+<tr class="memitem:add8cbc93a9f683418c6ef354dd8ea017"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#add8cbc93a9f683418c6ef354dd8ea017">buildGraphviz</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:add8cbc93a9f683418c6ef354dd8ea017"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a visual representation of the network's graph.  <a href="class_manager.html#add8cbc93a9f683418c6ef354dd8ea017">More...</a><br /></td></tr>
 <tr class="separator:add8cbc93a9f683418c6ef354dd8ea017"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e747cc148ce55bd2f62a96ee2e08d20"><td class="memItemLeft" align="right" valign="top"><a id="a6e747cc148ce55bd2f62a96ee2e08d20" name="a6e747cc148ce55bd2f62a96ee2e08d20"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>buildGraphvizWithFlows</b> (const string &amp;filename)</td></tr>
+<tr class="memitem:a6e747cc148ce55bd2f62a96ee2e08d20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a6e747cc148ce55bd2f62a96ee2e08d20">buildGraphvizWithFlows</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:a6e747cc148ce55bd2f62a96ee2e08d20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a visual representation of the network's graph with flow display.  <a href="class_manager.html#a6e747cc148ce55bd2f62a96ee2e08d20">More...</a><br /></td></tr>
 <tr class="separator:a6e747cc148ce55bd2f62a96ee2e08d20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e8f36c844f47ea5049500e6ce603ef0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_manager.html#a3e8f36c844f47ea5049500e6ce603ef0">buildGraphvizWithFlowsSecondaryRailway</a> (const string &amp;filename)</td></tr>
+<tr class="memdesc:a3e8f36c844f47ea5049500e6ce603ef0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a visual representation of the network's reduced graph.  <a href="class_manager.html#a3e8f36c844f47ea5049500e6ce603ef0">More...</a><br /></td></tr>
+<tr class="separator:a3e8f36c844f47ea5049500e6ce603ef0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:aaa57995dcf7982bfdcf4b8b76bce2316"><td class="memItemLeft" align="right" valign="top"><a id="aaa57995dcf7982bfdcf4b8b76bce2316" name="aaa57995dcf7982bfdcf4b8b76bce2316"></a>
 <a class="el" href="class_graph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>railway</b></td></tr>
+<tr class="memdesc:aaa57995dcf7982bfdcf4b8b76bce2316"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network's graph. <br /></td></tr>
 <tr class="separator:aaa57995dcf7982bfdcf4b8b76bce2316"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8729feda5a0040a0259e377b6562e496"><td class="memItemLeft" align="right" valign="top"><a id="a8729feda5a0040a0259e377b6562e496" name="a8729feda5a0040a0259e377b6562e496"></a>
+<a class="el" href="class_graph.html">Graph</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>reducedRailway</b></td></tr>
+<tr class="memdesc:a8729feda5a0040a0259e377b6562e496"><td class="mdescLeft">&#160;</td><td class="mdescRight">The network's reduced graph. <br /></td></tr>
+<tr class="separator:a8729feda5a0040a0259e377b6562e496"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents the interface between the menu and the graph. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="add8cbc93a9f683418c6ef354dd8ea017" name="add8cbc93a9f683418c6ef354dd8ea017"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add8cbc93a9f683418c6ef354dd8ea017">&#9670;&#160;</a></span>buildGraphviz()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::buildGraphviz </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a visual representation of the network's graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6e747cc148ce55bd2f62a96ee2e08d20" name="a6e747cc148ce55bd2f62a96ee2e08d20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e747cc148ce55bd2f62a96ee2e08d20">&#9670;&#160;</a></span>buildGraphvizWithFlows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::buildGraphvizWithFlows </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a visual representation of the network's graph with flow display. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3e8f36c844f47ea5049500e6ce603ef0" name="a3e8f36c844f47ea5049500e6ce603ef0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e8f36c844f47ea5049500e6ce603ef0">&#9670;&#160;</a></span>buildGraphvizWithFlowsSecondaryRailway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::buildGraphvizWithFlowsSecondaryRailway </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a visual representation of the network's reduced graph. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the file </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e9df6b900fdcdb445d77380804c6b43" name="a4e9df6b900fdcdb445d77380804c6b43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e9df6b900fdcdb445d77380804c6b43">&#9670;&#160;</a></span>buildNetwork()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::buildNetwork </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a graph containing the railway's connections. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the file containing the railway connections' data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a5bc7c636498de4c2042431da653a301c" name="a5bc7c636498de4c2042431da653a301c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bc7c636498de4c2042431da653a301c">&#9670;&#160;</a></span>buildRailway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::buildRailway </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Builds a graph containing the railway's train stations. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename</td><td>The name of the file containing the train stations' data </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1b7248e74d609989b6e2268f07f2364f" name="a1b7248e74d609989b6e2268f07f2364f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b7248e74d609989b6e2268f07f2364f">&#9670;&#160;</a></span>maxArrivalTrainsAtCertain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Manager::maxArrivalTrainsAtCertain </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>dest</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the maximum number of trains that can simultaneously arrive at a given station, using the entire railway network. </p>
+<p >Complexity: O(|V||E|²) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>The target station </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum number of trains that can arrive at the designated station simultaneously </dd></dl>
+
+</div>
+</div>
+<a id="a93b9b53f9448e19222496dc3be3be3dd" name="a93b9b53f9448e19222496dc3be3be3dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b9b53f9448e19222496dc3be3be3dd">&#9670;&#160;</a></span>maxCapacityTrainsPairs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vector&lt; pair&lt; string, string &gt; &gt; Manager::maxCapacityTrainsPairs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the pair(s) of stations that require the maximum amount of trains to travel between them. </p>
+<p >Complexity: O(|E|²|V|³) </p><dl class="section return"><dt>Returns</dt><dd>A vector with the pair(s) of stations with maximum flow between them </dd></dl>
+
+</div>
+</div>
+<a id="a5b2b5dfec611688d4aa3a0b9fa4bd802" name="a5b2b5dfec611688d4aa3a0b9fa4bd802"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b2b5dfec611688d4aa3a0b9fa4bd802">&#9670;&#160;</a></span>maxTrains()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Manager::maxTrains </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>destination</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the maximum flow between a source and a destination vertex using the Edmonds-Karp algorithm. </p>
+<p >Complexity: O(|V||E|²) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The source station </td></tr>
+    <tr><td class="paramname">destination</td><td>The target station </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum number of trains that can simultaneously travel between a source station and a target station </dd></dl>
+
+</div>
+</div>
+<a id="a0d5d06069ca0240220d82f24c74c9c4b" name="a0d5d06069ca0240220d82f24c74c9c4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5d06069ca0240220d82f24c74c9c4b">&#9670;&#160;</a></span>maxTrainsMinCost()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Manager::maxTrainsMinCost </td>
+          <td>(</td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>src</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>dst</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the minimum cost of operating the maximum number of trains possible between two stations. </p>
+<p >Complexity: O(|E|+|V|log(|V|)) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">src</td><td>The source station </td></tr>
+    <tr><td class="paramname">dst</td><td>The destination station </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum number of trains that can simultaneously travel between the two stations' minimum cost path </dd></dl>
+
+</div>
+</div>
+<a id="a410f7c76d4c87e6bbd0eeb982b3e235e" name="a410f7c76d4c87e6bbd0eeb982b3e235e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a410f7c76d4c87e6bbd0eeb982b3e235e">&#9670;&#160;</a></span>maxTrainsWithReducedRailway()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Manager::maxTrainsWithReducedRailway </td>
+          <td>(</td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>destination</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the maximum number of trains that can simultaneously travel between two stations in a network of reduced connectivity. </p>
+<p >Complexity: O(|V||E|²) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>The source station </td></tr>
+    <tr><td class="paramname">destination</td><td>The destination station </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum number of trains that can simultaneously travel between the two stations </dd></dl>
+
+</div>
+</div>
+<a id="a15de68b5dbc642187004b524ac38ef5d" name="a15de68b5dbc642187004b524ac38ef5d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15de68b5dbc642187004b524ac38ef5d">&#9670;&#160;</a></span>mostImpactedStations()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::mostImpactedStations </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the top-k most affected stations in terms of flow for a set of segment failures. </p>
+<p >Complexity: O(|V|²|E|²) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The number of stations to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae118584a990f27a8ec621cc240ca2484" name="ae118584a990f27a8ec621cc240ca2484"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae118584a990f27a8ec621cc240ca2484">&#9670;&#160;</a></span>topFlowDistricts()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::topFlowDistricts </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the top-k districts with the most importance in the network in terms of flow centrality. </p>
+<p >Complexity: O(|E|²|V|³) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The number of districts to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a703e549951e7202281e6e741b5fbb13f" name="a703e549951e7202281e6e741b5fbb13f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a703e549951e7202281e6e741b5fbb13f">&#9670;&#160;</a></span>topFlowMunicipalities()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Manager::topFlowMunicipalities </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>k</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds the top-k municipalities with the most importance in the network in terms of flow centrality. </p>
+<p >Complexity: O(|E|²|V|³) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">k</td><td>The number of municipalities to be displayed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Utilizador/Desktop/leic-rnm/headers/<a class="el" href="manager_8h_source.html">manager.h</a></li>
 <li>C:/Users/Utilizador/Desktop/leic-rnm/src/manager.cpp</li>

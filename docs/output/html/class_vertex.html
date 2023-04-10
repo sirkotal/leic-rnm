@@ -27,7 +27,7 @@
   <td id="projectalign">
    <div id="projectname">DA - Railroad Network Manager<span id="projectnumber">&#160;1.0.0</span>
    </div>
-   <div id="projectbrief">Development of an Railroad Network Management system, capable of helping manage the Portuguese train system.</div>
+   <div id="projectbrief">Development of a Railroad Network Management system, capable of helping manage the Portuguese train system.</div>
   </td>
  </tr>
  </tbody>
@@ -97,97 +97,519 @@ $(document).ready(function(){initNavTree('class_vertex.html',''); initResizable(
   <div class="headertitle"><div class="title">Vertex Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a station in the railway network.  
+ <a href="class_vertex.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="vertexedge_8h_source.html">vertexedge.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a74ef76bc81be08571ac7cf13239487c0"><td class="memItemLeft" align="right" valign="top"><a id="a74ef76bc81be08571ac7cf13239487c0" name="a74ef76bc81be08571ac7cf13239487c0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Vertex</b> (const <a class="el" href="class_station.html">Station</a> &amp;station)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Vertex</b> (const <a class="el" href="class_station.html">Station</a> &amp;<a class="el" href="class_vertex.html#adaa014eec496002d35289720b45f8611">station</a>)</td></tr>
 <tr class="separator:a74ef76bc81be08571ac7cf13239487c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9858f2aa388d2bfb49d9df8f4504b5a0"><td class="memItemLeft" align="right" valign="top"><a id="a9858f2aa388d2bfb49d9df8f4504b5a0" name="a9858f2aa388d2bfb49d9df8f4504b5a0"></a>
-std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAdj</b> () const</td></tr>
+<tr class="memitem:a9858f2aa388d2bfb49d9df8f4504b5a0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a9858f2aa388d2bfb49d9df8f4504b5a0">getAdj</a> () const</td></tr>
+<tr class="memdesc:a9858f2aa388d2bfb49d9df8f4504b5a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the vertex's adjacency list.  <a href="class_vertex.html#a9858f2aa388d2bfb49d9df8f4504b5a0">More...</a><br /></td></tr>
 <tr class="separator:a9858f2aa388d2bfb49d9df8f4504b5a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26a316171220eb69c913c029ddbe270a"><td class="memItemLeft" align="right" valign="top"><a id="a26a316171220eb69c913c029ddbe270a" name="a26a316171220eb69c913c029ddbe270a"></a>
-<a class="el" href="class_station.html">Station</a>&#160;</td><td class="memItemRight" valign="bottom"><b>getStation</b> () const</td></tr>
+<tr class="memitem:a26a316171220eb69c913c029ddbe270a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_station.html">Station</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a26a316171220eb69c913c029ddbe270a">getStation</a> () const</td></tr>
+<tr class="memdesc:a26a316171220eb69c913c029ddbe270a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the train station associated to the vertex.  <a href="class_vertex.html#a26a316171220eb69c913c029ddbe270a">More...</a><br /></td></tr>
 <tr class="separator:a26a316171220eb69c913c029ddbe270a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa4bd82105b85ee53a917391f4811cd8a"><td class="memItemLeft" align="right" valign="top"><a id="aa4bd82105b85ee53a917391f4811cd8a" name="aa4bd82105b85ee53a917391f4811cd8a"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isVisited</b> () const</td></tr>
+<tr class="memitem:aa4bd82105b85ee53a917391f4811cd8a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#aa4bd82105b85ee53a917391f4811cd8a">isVisited</a> () const</td></tr>
+<tr class="memdesc:aa4bd82105b85ee53a917391f4811cd8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the vertex has been visited.  <a href="class_vertex.html#aa4bd82105b85ee53a917391f4811cd8a">More...</a><br /></td></tr>
 <tr class="separator:aa4bd82105b85ee53a917391f4811cd8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a126e306f0534b99cd97aa864fdb243d4"><td class="memItemLeft" align="right" valign="top"><a id="a126e306f0534b99cd97aa864fdb243d4" name="a126e306f0534b99cd97aa864fdb243d4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProcessing</b> () const</td></tr>
+<tr class="memitem:a126e306f0534b99cd97aa864fdb243d4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a126e306f0534b99cd97aa864fdb243d4">isProcessing</a> () const</td></tr>
+<tr class="memdesc:a126e306f0534b99cd97aa864fdb243d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the vertex is being processed.  <a href="class_vertex.html#a126e306f0534b99cd97aa864fdb243d4">More...</a><br /></td></tr>
 <tr class="separator:a126e306f0534b99cd97aa864fdb243d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7348af9376d4b9ada5ceeca3bd1b2b7"><td class="memItemLeft" align="right" valign="top"><a id="ad7348af9376d4b9ada5ceeca3bd1b2b7" name="ad7348af9376d4b9ada5ceeca3bd1b2b7"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndegree</b> () const</td></tr>
+<tr class="memitem:ad7348af9376d4b9ada5ceeca3bd1b2b7"><td class="memItemLeft" align="right" valign="top">unsigned int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ad7348af9376d4b9ada5ceeca3bd1b2b7">getIndegree</a> () const</td></tr>
+<tr class="memdesc:ad7348af9376d4b9ada5ceeca3bd1b2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the vertex's indegree.  <a href="class_vertex.html#ad7348af9376d4b9ada5ceeca3bd1b2b7">More...</a><br /></td></tr>
 <tr class="separator:ad7348af9376d4b9ada5ceeca3bd1b2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e120e57da6af94892fae44e05868794"><td class="memItemLeft" align="right" valign="top"><a id="a6e120e57da6af94892fae44e05868794" name="a6e120e57da6af94892fae44e05868794"></a>
-<a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPath</b> () const</td></tr>
+<tr class="memitem:a6e120e57da6af94892fae44e05868794"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a6e120e57da6af94892fae44e05868794">getPath</a> () const</td></tr>
+<tr class="memdesc:a6e120e57da6af94892fae44e05868794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the path that travels to the vertex.  <a href="class_vertex.html#a6e120e57da6af94892fae44e05868794">More...</a><br /></td></tr>
 <tr class="separator:a6e120e57da6af94892fae44e05868794"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84b20dae22321e5a729606885357b015"><td class="memItemLeft" align="right" valign="top"><a id="a84b20dae22321e5a729606885357b015" name="a84b20dae22321e5a729606885357b015"></a>
-std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getIncoming</b> () const</td></tr>
+<tr class="memitem:a84b20dae22321e5a729606885357b015"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a84b20dae22321e5a729606885357b015">getIncoming</a> () const</td></tr>
+<tr class="memdesc:a84b20dae22321e5a729606885357b015"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets all of the vertex's incoming edges.  <a href="class_vertex.html#a84b20dae22321e5a729606885357b015">More...</a><br /></td></tr>
 <tr class="separator:a84b20dae22321e5a729606885357b015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5c391478f6fc9302bea57ae4daa18c81"><td class="memItemLeft" align="right" valign="top"><a id="a5c391478f6fc9302bea57ae4daa18c81" name="a5c391478f6fc9302bea57ae4daa18c81"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getDistance</b> () const</td></tr>
+<tr class="memitem:a5c391478f6fc9302bea57ae4daa18c81"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a5c391478f6fc9302bea57ae4daa18c81">getDistance</a> () const</td></tr>
+<tr class="memdesc:a5c391478f6fc9302bea57ae4daa18c81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the vertex's distance (cost) to a source vertex.  <a href="class_vertex.html#a5c391478f6fc9302bea57ae4daa18c81">More...</a><br /></td></tr>
 <tr class="separator:a5c391478f6fc9302bea57ae4daa18c81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15eeabbbb6d517af746ae137c6d5b595"><td class="memItemLeft" align="right" valign="top"><a id="a15eeabbbb6d517af746ae137c6d5b595" name="a15eeabbbb6d517af746ae137c6d5b595"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVisited</b> (bool visited)</td></tr>
+<tr class="memitem:a15eeabbbb6d517af746ae137c6d5b595"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a15eeabbbb6d517af746ae137c6d5b595">setVisited</a> (bool <a class="el" href="class_vertex.html#aaef9f7de91b4b8f1752d391a1aae9c2e">visited</a>)</td></tr>
+<tr class="memdesc:a15eeabbbb6d517af746ae137c6d5b595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vertex to either visited or unvisited.  <a href="class_vertex.html#a15eeabbbb6d517af746ae137c6d5b595">More...</a><br /></td></tr>
 <tr class="separator:a15eeabbbb6d517af746ae137c6d5b595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c93b166281b30db2edef03791748ace"><td class="memItemLeft" align="right" valign="top"><a id="a1c93b166281b30db2edef03791748ace" name="a1c93b166281b30db2edef03791748ace"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setProcesssing</b> (bool processing)</td></tr>
+<tr class="memitem:a1c93b166281b30db2edef03791748ace"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a1c93b166281b30db2edef03791748ace">setProcesssing</a> (bool <a class="el" href="class_vertex.html#a305dc8fcad6e4c7ef2491409ca7ddaa4">processing</a>)</td></tr>
+<tr class="memdesc:a1c93b166281b30db2edef03791748ace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vertex to either being processed or not.  <a href="class_vertex.html#a1c93b166281b30db2edef03791748ace">More...</a><br /></td></tr>
 <tr class="separator:a1c93b166281b30db2edef03791748ace"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb605d2ba9296a5e40496a9e37557d03"><td class="memItemLeft" align="right" valign="top"><a id="aeb605d2ba9296a5e40496a9e37557d03" name="aeb605d2ba9296a5e40496a9e37557d03"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIndegree</b> (unsigned int indegree)</td></tr>
+<tr class="memitem:aeb605d2ba9296a5e40496a9e37557d03"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#aeb605d2ba9296a5e40496a9e37557d03">setIndegree</a> (unsigned int <a class="el" href="class_vertex.html#a94ae99aae9b1a426feda5ecda70c598b">indegree</a>)</td></tr>
+<tr class="memdesc:aeb605d2ba9296a5e40496a9e37557d03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vertex's indegree.  <a href="class_vertex.html#aeb605d2ba9296a5e40496a9e37557d03">More...</a><br /></td></tr>
 <tr class="separator:aeb605d2ba9296a5e40496a9e37557d03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe4bc30005eec65e775d0cd51f456460"><td class="memItemLeft" align="right" valign="top"><a id="abe4bc30005eec65e775d0cd51f456460" name="abe4bc30005eec65e775d0cd51f456460"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPath</b> (<a class="el" href="class_edge.html">Edge</a> *path)</td></tr>
+<tr class="memitem:abe4bc30005eec65e775d0cd51f456460"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#abe4bc30005eec65e775d0cd51f456460">setPath</a> (<a class="el" href="class_edge.html">Edge</a> *<a class="el" href="class_vertex.html#a4e83821f961f6eb63ad210260ba0e1e2">path</a>)</td></tr>
+<tr class="memdesc:abe4bc30005eec65e775d0cd51f456460"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the path to the vertex.  <a href="class_vertex.html#abe4bc30005eec65e775d0cd51f456460">More...</a><br /></td></tr>
 <tr class="separator:abe4bc30005eec65e775d0cd51f456460"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a160f1fff41a4231914650beff3ff1919"><td class="memItemLeft" align="right" valign="top"><a id="a160f1fff41a4231914650beff3ff1919" name="a160f1fff41a4231914650beff3ff1919"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDistance</b> (int num)</td></tr>
+<tr class="memitem:a160f1fff41a4231914650beff3ff1919"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a160f1fff41a4231914650beff3ff1919">setDistance</a> (int num)</td></tr>
+<tr class="memdesc:a160f1fff41a4231914650beff3ff1919"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the vertex's distance (cost) to a source vertex.  <a href="class_vertex.html#a160f1fff41a4231914650beff3ff1919">More...</a><br /></td></tr>
 <tr class="separator:a160f1fff41a4231914650beff3ff1919"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b923d3b9031202e1e418f3643f30701"><td class="memItemLeft" align="right" valign="top"><a id="a7b923d3b9031202e1e418f3643f30701" name="a7b923d3b9031202e1e418f3643f30701"></a>
-<a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>addEdge</b> (<a class="el" href="class_vertex.html">Vertex</a> *dest, double w, const string &amp;service)</td></tr>
+<tr class="memitem:a7b923d3b9031202e1e418f3643f30701"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a7b923d3b9031202e1e418f3643f30701">addEdge</a> (<a class="el" href="class_vertex.html">Vertex</a> *dest, double w, const string &amp;service)</td></tr>
+<tr class="memdesc:a7b923d3b9031202e1e418f3643f30701"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds an edge that originates from the vertex.  <a href="class_vertex.html#a7b923d3b9031202e1e418f3643f30701">More...</a><br /></td></tr>
 <tr class="separator:a7b923d3b9031202e1e418f3643f30701"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89286720b86f8062a7364798b800611e"><td class="memItemLeft" align="right" valign="top"><a id="a89286720b86f8062a7364798b800611e" name="a89286720b86f8062a7364798b800611e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>removeEdge</b> (string destID)</td></tr>
+<tr class="memitem:a89286720b86f8062a7364798b800611e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a89286720b86f8062a7364798b800611e">removeEdge</a> (string destID)</td></tr>
+<tr class="memdesc:a89286720b86f8062a7364798b800611e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an edge that originates from the vertex.  <a href="class_vertex.html#a89286720b86f8062a7364798b800611e">More...</a><br /></td></tr>
 <tr class="separator:a89286720b86f8062a7364798b800611e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5ae7f440c4df0bbb640dfe263af946a8"><td class="memItemLeft" align="right" valign="top"><a id="a5ae7f440c4df0bbb640dfe263af946a8" name="a5ae7f440c4df0bbb640dfe263af946a8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator()</b> (const <a class="el" href="class_vertex.html">Vertex</a> *s, const <a class="el" href="class_vertex.html">Vertex</a> *t) const</td></tr>
-<tr class="separator:a5ae7f440c4df0bbb640dfe263af946a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf3c33ddebff302f127e04e5736a079e"><td class="memItemLeft" align="right" valign="top"><a id="acf3c33ddebff302f127e04e5736a079e" name="acf3c33ddebff302f127e04e5736a079e"></a>
-<a class="el" href="class_vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getSRC</b> ()</td></tr>
+<tr class="memitem:acf3c33ddebff302f127e04e5736a079e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#acf3c33ddebff302f127e04e5736a079e">getSRC</a> ()</td></tr>
+<tr class="memdesc:acf3c33ddebff302f127e04e5736a079e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the previous vertex.  <a href="class_vertex.html#acf3c33ddebff302f127e04e5736a079e">More...</a><br /></td></tr>
 <tr class="separator:acf3c33ddebff302f127e04e5736a079e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1260695f79a216ba87187cf97e71ab2"><td class="memItemLeft" align="right" valign="top"><a id="ab1260695f79a216ba87187cf97e71ab2" name="ab1260695f79a216ba87187cf97e71ab2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setSRC</b> (<a class="el" href="class_vertex.html">Vertex</a> *v)</td></tr>
+<tr class="memitem:ab1260695f79a216ba87187cf97e71ab2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ab1260695f79a216ba87187cf97e71ab2">setSRC</a> (<a class="el" href="class_vertex.html">Vertex</a> *v)</td></tr>
+<tr class="memdesc:ab1260695f79a216ba87187cf97e71ab2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the previous vertex.  <a href="class_vertex.html#ab1260695f79a216ba87187cf97e71ab2">More...</a><br /></td></tr>
 <tr class="separator:ab1260695f79a216ba87187cf97e71ab2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:adaa014eec496002d35289720b45f8611"><td class="memItemLeft" align="right" valign="top"><a id="adaa014eec496002d35289720b45f8611" name="adaa014eec496002d35289720b45f8611"></a>
 <a class="el" href="class_station.html">Station</a>&#160;</td><td class="memItemRight" valign="bottom"><b>station</b></td></tr>
+<tr class="memdesc:adaa014eec496002d35289720b45f8611"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex's station. <br /></td></tr>
 <tr class="separator:adaa014eec496002d35289720b45f8611"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0be7a8d322f99d4812261af91c3e2178"><td class="memItemLeft" align="right" valign="top"><a id="a0be7a8d322f99d4812261af91c3e2178" name="a0be7a8d322f99d4812261af91c3e2178"></a>
 std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>adj</b></td></tr>
+<tr class="memdesc:a0be7a8d322f99d4812261af91c3e2178"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex's adjacency list (outgoing edges) <br /></td></tr>
 <tr class="separator:a0be7a8d322f99d4812261af91c3e2178"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaef9f7de91b4b8f1752d391a1aae9c2e"><td class="memItemLeft" align="right" valign="top"><a id="aaef9f7de91b4b8f1752d391a1aae9c2e" name="aaef9f7de91b4b8f1752d391a1aae9c2e"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>visited</b> = false</td></tr>
+<tr class="memdesc:aaef9f7de91b4b8f1752d391a1aae9c2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex has been visited. <br /></td></tr>
 <tr class="separator:aaef9f7de91b4b8f1752d391a1aae9c2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a305dc8fcad6e4c7ef2491409ca7ddaa4"><td class="memItemLeft" align="right" valign="top"><a id="a305dc8fcad6e4c7ef2491409ca7ddaa4" name="a305dc8fcad6e4c7ef2491409ca7ddaa4"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>processing</b> = false</td></tr>
+<tr class="memdesc:a305dc8fcad6e4c7ef2491409ca7ddaa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex is being processed. <br /></td></tr>
 <tr class="separator:a305dc8fcad6e4c7ef2491409ca7ddaa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94ae99aae9b1a426feda5ecda70c598b"><td class="memItemLeft" align="right" valign="top"><a id="a94ae99aae9b1a426feda5ecda70c598b" name="a94ae99aae9b1a426feda5ecda70c598b"></a>
 unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>indegree</b></td></tr>
+<tr class="memdesc:a94ae99aae9b1a426feda5ecda70c598b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex's indegree. <br /></td></tr>
 <tr class="separator:a94ae99aae9b1a426feda5ecda70c598b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e83821f961f6eb63ad210260ba0e1e2"><td class="memItemLeft" align="right" valign="top"><a id="a4e83821f961f6eb63ad210260ba0e1e2" name="a4e83821f961f6eb63ad210260ba0e1e2"></a>
 <a class="el" href="class_edge.html">Edge</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>path</b> = nullptr</td></tr>
+<tr class="memdesc:a4e83821f961f6eb63ad210260ba0e1e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The edge that travels to this vertex. <br /></td></tr>
 <tr class="separator:a4e83821f961f6eb63ad210260ba0e1e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d41654d7aee77d99edacca6a923f4ee"><td class="memItemLeft" align="right" valign="top"><a id="a2d41654d7aee77d99edacca6a923f4ee" name="a2d41654d7aee77d99edacca6a923f4ee"></a>
 std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>incoming</b></td></tr>
+<tr class="memdesc:a2d41654d7aee77d99edacca6a923f4ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The vertex's incoming edges. <br /></td></tr>
 <tr class="separator:a2d41654d7aee77d99edacca6a923f4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4299c7826ba6d099ecd86127bbb798db"><td class="memItemLeft" align="right" valign="top"><a id="a4299c7826ba6d099ecd86127bbb798db" name="a4299c7826ba6d099ecd86127bbb798db"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>dist</b> = INT_MAX</td></tr>
+<tr class="memdesc:a4299c7826ba6d099ecd86127bbb798db"><td class="mdescLeft">&#160;</td><td class="mdescRight">The cost of reaching this vertex. <br /></td></tr>
 <tr class="separator:a4299c7826ba6d099ecd86127bbb798db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1308a91e16624e4994288282b216dcf4"><td class="memItemLeft" align="right" valign="top"><a id="a1308a91e16624e4994288282b216dcf4" name="a1308a91e16624e4994288282b216dcf4"></a>
 <a class="el" href="class_vertex.html">Vertex</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>src</b> = nullptr</td></tr>
+<tr class="memdesc:a1308a91e16624e4994288282b216dcf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">The previous vertex. <br /></td></tr>
 <tr class="separator:a1308a91e16624e4994288282b216dcf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p >Represents a station in the railway network. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a7b923d3b9031202e1e418f3643f30701" name="a7b923d3b9031202e1e418f3643f30701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b923d3b9031202e1e418f3643f30701">&#9670;&#160;</a></span>addEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * Vertex::addEdge </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>dest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string &amp;&#160;</td>
+          <td class="paramname"><em>service</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds an edge that originates from the vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dest</td><td>The destination vertex </td></tr>
+    <tr><td class="paramname">w</td><td>The edge's capacity/weight </td></tr>
+    <tr><td class="paramname">service</td><td>The edge's type of service </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new edge that has been added </dd></dl>
+
+</div>
+</div>
+<a id="a9858f2aa388d2bfb49d9df8f4504b5a0" name="a9858f2aa388d2bfb49d9df8f4504b5a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9858f2aa388d2bfb49d9df8f4504b5a0">&#9670;&#160;</a></span>getAdj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; Vertex::getAdj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the vertex's adjacency list. </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector with all of the vertex's outgoing edges </dd></dl>
+
+</div>
+</div>
+<a id="a5c391478f6fc9302bea57ae4daa18c81" name="a5c391478f6fc9302bea57ae4daa18c81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c391478f6fc9302bea57ae4daa18c81">&#9670;&#160;</a></span>getDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Vertex::getDistance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the vertex's distance (cost) to a source vertex. </p>
+<dl class="section return"><dt>Returns</dt><dd>The vertex's distance to the source </dd></dl>
+
+</div>
+</div>
+<a id="a84b20dae22321e5a729606885357b015" name="a84b20dae22321e5a729606885357b015"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84b20dae22321e5a729606885357b015">&#9670;&#160;</a></span>getIncoming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="class_edge.html">Edge</a> * &gt; Vertex::getIncoming </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets all of the vertex's incoming edges. </p>
+<dl class="section return"><dt>Returns</dt><dd>A vector with all of the vertex's incoming edges </dd></dl>
+
+</div>
+</div>
+<a id="ad7348af9376d4b9ada5ceeca3bd1b2b7" name="ad7348af9376d4b9ada5ceeca3bd1b2b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7348af9376d4b9ada5ceeca3bd1b2b7">&#9670;&#160;</a></span>getIndegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned int Vertex::getIndegree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the vertex's indegree. </p>
+<dl class="section return"><dt>Returns</dt><dd>The indegree of the vertex </dd></dl>
+
+</div>
+</div>
+<a id="a6e120e57da6af94892fae44e05868794" name="a6e120e57da6af94892fae44e05868794"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e120e57da6af94892fae44e05868794">&#9670;&#160;</a></span>getPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_edge.html">Edge</a> * Vertex::getPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the path that travels to the vertex. </p>
+<dl class="section return"><dt>Returns</dt><dd>The edge that travels to the vertex </dd></dl>
+
+</div>
+</div>
+<a id="acf3c33ddebff302f127e04e5736a079e" name="acf3c33ddebff302f127e04e5736a079e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf3c33ddebff302f127e04e5736a079e">&#9670;&#160;</a></span>getSRC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vertex.html">Vertex</a> * Vertex::getSRC </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the previous vertex. </p>
+<dl class="section return"><dt>Returns</dt><dd>The previous vertex </dd></dl>
+
+</div>
+</div>
+<a id="a26a316171220eb69c913c029ddbe270a" name="a26a316171220eb69c913c029ddbe270a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26a316171220eb69c913c029ddbe270a">&#9670;&#160;</a></span>getStation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_station.html">Station</a> Vertex::getStation </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the train station associated to the vertex. </p>
+<dl class="section return"><dt>Returns</dt><dd>The vertex's station </dd></dl>
+
+</div>
+</div>
+<a id="a126e306f0534b99cd97aa864fdb243d4" name="a126e306f0534b99cd97aa864fdb243d4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a126e306f0534b99cd97aa864fdb243d4">&#9670;&#160;</a></span>isProcessing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Vertex::isProcessing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the vertex is being processed. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the vertex is being processed; if it isn't, it returns false </dd></dl>
+
+</div>
+</div>
+<a id="aa4bd82105b85ee53a917391f4811cd8a" name="aa4bd82105b85ee53a917391f4811cd8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4bd82105b85ee53a917391f4811cd8a">&#9670;&#160;</a></span>isVisited()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Vertex::isVisited </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the vertex has been visited. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if the vertex has been visited; if it hasn't, it returns false </dd></dl>
+
+</div>
+</div>
+<a id="a89286720b86f8062a7364798b800611e" name="a89286720b86f8062a7364798b800611e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89286720b86f8062a7364798b800611e">&#9670;&#160;</a></span>removeEdge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Vertex::removeEdge </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>destID</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes an edge that originates from the vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">destID</td><td>The destination vertex's station name </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the edge was successfully removed; if it doesn't exist, it returns false </dd></dl>
+
+</div>
+</div>
+<a id="a160f1fff41a4231914650beff3ff1919" name="a160f1fff41a4231914650beff3ff1919"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a160f1fff41a4231914650beff3ff1919">&#9670;&#160;</a></span>setDistance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setDistance </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>num</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the vertex's distance (cost) to a source vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">num</td><td>The vertex's distance to the source </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aeb605d2ba9296a5e40496a9e37557d03" name="aeb605d2ba9296a5e40496a9e37557d03"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb605d2ba9296a5e40496a9e37557d03">&#9670;&#160;</a></span>setIndegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setIndegree </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>indegree</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the vertex's indegree. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">indegree</td><td>The vertex's new indegree </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abe4bc30005eec65e775d0cd51f456460" name="abe4bc30005eec65e775d0cd51f456460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe4bc30005eec65e775d0cd51f456460">&#9670;&#160;</a></span>setPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_edge.html">Edge</a> *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the path to the vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>The edge that leads to the vertex </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c93b166281b30db2edef03791748ace" name="a1c93b166281b30db2edef03791748ace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c93b166281b30db2edef03791748ace">&#9670;&#160;</a></span>setProcesssing()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setProcesssing </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>processing</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the vertex to either being processed or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">processing</td><td>True if setting the vertex to being processed; otherwise, it is false </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab1260695f79a216ba87187cf97e71ab2" name="ab1260695f79a216ba87187cf97e71ab2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1260695f79a216ba87187cf97e71ab2">&#9670;&#160;</a></span>setSRC()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setSRC </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the previous vertex. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>The previous vertex </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a15eeabbbb6d517af746ae137c6d5b595" name="a15eeabbbb6d517af746ae137c6d5b595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15eeabbbb6d517af746ae137c6d5b595">&#9670;&#160;</a></span>setVisited()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setVisited </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visited</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the vertex to either visited or unvisited. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">visited</td><td>True if setting the vertex to visited; otherwise, it is false </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>C:/Users/Utilizador/Desktop/leic-rnm/headers/<a class="el" href="vertexedge_8h_source.html">vertexedge.h</a></li>
 <li>C:/Users/Utilizador/Desktop/leic-rnm/src/vertexedge.cpp</li>

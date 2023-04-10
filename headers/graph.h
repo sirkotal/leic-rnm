@@ -23,6 +23,7 @@ public:
     
     /**
      * @brief Finds a vertex in the graph with the given id
+     * @details Complexity: O(|V|)
      * @param id The vertex's id
      * @return The vertex with the specified id; if it doesn't exist, it returns nullptr
      */
@@ -82,14 +83,16 @@ public:
 
     /**
      * @brief Finds the maximum flow between a source and a destination vertex using the Edmonds-Karp algorithm
+     * @details Complexity: O(|V||E|²)
      * @param source The source station
      * @param target The target station
-     * @return The maximum number of trains that can simultaneously travel between a source station and a target station.
+     * @return The maximum number of trains that can simultaneously travel between a source station and a target station
      */
     double edmondsKarp(const string source, const string target);
 
     /**
      * @brief Finds the minimum cost path between a source and a destination vertex using a modified Dijkstra algorithm
+     * @details Complexity: O(|E|+|V|log(|V|))
      * @param source The source station
      * @param target The target station
      * @param path The vector that stores the minimum cost path between the source and the destination
@@ -105,6 +108,7 @@ public:
 
     /**
      * @brief Finds an augmenting path in the graph using a breadth-first search
+     * @details Complexity: O(|V|+|E|)
      * @param s The source vertex
      * @param t The target vertex
      * @return True if an augmenting path is found; otherwise, it returns false
@@ -138,24 +142,28 @@ public:
 
     /**
      * @brief Gets the pair(s) of stations that require the maximum amount of trains to travel between them
+     * @details Complexity: O(|E|²|V|³)
      * @return A vector with the pair(s) of stations with maximum flow between them
      */
     vector<pair<string,string>> maxTrainsPairs();
 
     /**
      * @brief Finds the municipalities with the most importance in the network in terms of flow centrality
+     * @details Complexity: O(|E|²|V|³)
      * @return A vector of municipalities sorted by flow centrality
      */
     vector<pair<string, double>> topFlowMunicipalities();
 
     /**
      * @brief Finds the districts with the most importance in the network in terms of flow centrality
+     * @details Complexity: O(|E|²|V|³)
      * @return A vector of districts sorted by flow centrality
      */
     vector<pair<string, double>> topFlowDistricts();
 
     /**
      * @brief Gets the maximum number of trains that can simultaneously arrive at a given station, using the entire railway network
+     * @details Complexity: O(|V||E|²)
      * @param dest The target station
      * @return The maximum number of trains that can arrive at the designated station simultaneously
      */

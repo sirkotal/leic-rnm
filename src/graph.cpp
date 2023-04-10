@@ -311,7 +311,16 @@ double Graph::maxArrivalTrains(const string dest){
     return maxTrainArrival;
 }
 
+/**
+ * @brief Allows the sorting of the graph's vertexes by descending order of distance
+ */
 struct PriorityCompare {
+    /**
+     * @brief Sorts two vertexes by distance
+     * @param s The first vertex
+     * @param t The second vertex
+     * @return True if the first vertex's distance is bigger than the second's; otherwise, it returns false
+     */
     bool operator()(const Vertex* s, const Vertex* t) {
         return s->getDistance() > t->getDistance();
     }

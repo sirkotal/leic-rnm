@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['station_0',['Station',['../class_station.html',1,'']]]
+  ['prioritycompare_0',['PriorityCompare',['../struct_priority_compare.html',1,'']]]
 ];

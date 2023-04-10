@@ -6,18 +6,13 @@
 using namespace std;
 Menu::Menu(): manager(Manager()) {}
 
-/**
- * If the option chosen in the main menu is invalid clears the buffer
- */
 void Menu::invalidInput(){
     cout << '\n';
     cout << "Uh-oh invalid option!\n";
     cin.ignore(10000, '\n');
     cin.clear();
 }
-/**
- * Displays the main menu indicating the meaning of each option
- */
+
 void Menu::printMainMenu() {
     std::cout << """"
                  "----------------------------------------------------------\n"
@@ -36,9 +31,7 @@ void Menu::printMainMenu() {
                  "-------------------------------------------------------------------------------------------------------\n"
                  "> ";
 }
-/**
- * Displays the "Basic Services" menu indicating the meaning of each option
- */
+
 void Menu::printSubMenu1(){
     std::cout << """"
                  "How can we help you today?\nInsert the number of the operation (0-5).\n"
@@ -55,9 +48,7 @@ void Menu::printSubMenu1(){
                  "-------------------------------------------------------------------------------------------------------\n"
                  "> ";
 }
-/**
- * Displays the "Cost Optimization" menu indicating the meaning of each option
- */
+
 void Menu::printSubMenu2() {
     std::cout << """"
                  "How can we help you today?\nInsert the number of the operation (0-1).\n"
@@ -71,9 +62,7 @@ void Menu::printSubMenu2() {
                  "-------------------------------------------------------------------------------------------------------\n"
                  "> ";
 }
-/**
- * Displays the "Reliability and Sensitivity to Line Failures" menu indicating the meaning of each option
- */
+
 void Menu::printSubMenu3() {
     std::cout << """"
                  "How can we help you today?\nInsert the number of the operation (0-2).\n"
@@ -88,10 +77,7 @@ void Menu::printSubMenu3() {
                  "-------------------------------------------------------------------------------------------------------\n"
                  "> ";
 }
-/**
- * Accordingly to the chosen option, applies the procedures needed to accomplish what was asked in the "Basic Services" menu
- * @param option Option chosen by the user
- */
+
 void Menu::switchSubMenu1(char option) {
     string src, dst;
     int k;
@@ -145,10 +131,7 @@ void Menu::switchSubMenu1(char option) {
             break;
     }
 }
-/**
- * Accordingly to the chosen option, applies the procedures needed to accomplish what was asked in the "Cost Optimization" menu
- * @param option Option chosen by the user
- */
+
 void Menu::switchSubMenu2(char option) {
     string src, dst;
     switch (option) {
@@ -170,10 +153,7 @@ void Menu::switchSubMenu2(char option) {
             break;
     }
 }
-/**
- * Accordingly to the chosen option, applies the procedures needed to accomplish what was asked in the "Reliability and Sensitivity to Line Failures" menu
- * @param option Option chosen by the user
- */
+
 void Menu::switchSubMenu3(char option) {
     string src, dst;
     double num;
@@ -201,18 +181,12 @@ void Menu::switchSubMenu3(char option) {
             break;
     }
 }
-/**
- * Calls the functions of the Manager class to build both a railway and a network from the files the chosen filenames
- * @param r Name of the file where the railway is to be read
- * @param n Name of the file where the network is to be read
- */
+
 void Menu::dataBuilder(const string &r, const string &n) {
     manager.buildRailway(r);
     manager.buildNetwork(n);
 }
-/**
- * Accordingly to the chosen option, presents and deals with the options to choose: submenus, create another railway network or exit the program.
- */
+
 void Menu::mainMenu(){
     char choice_menu, choice_submenu;
     string railway, network;

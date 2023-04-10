@@ -13,12 +13,14 @@ public:
 
     void buildRailway(const string &filename);
     void buildNetwork(const string& filename);
+    void createReducedGraph();
 
     void testing();
 
-    double maxTrains(const string source, const string destination);
+    double maxTrains(const string &source, const string &destination);
     vector<pair<string,string>> maxCapacityTrainsPairs();
     void topFlowMunicipalities(int &k);
+    void topFlowDistricts(int &k);
 
     double maxArrivalTrainsAtCertain(const string dest);
 

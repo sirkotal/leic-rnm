@@ -1,7 +1,7 @@
 #include "manager.h"
 
-#define networkF "../data/network.csv"
-#define stationF "../data/stations.csv"
+/*#define networkF "../data/network.csv"
+#define stationF "../data/stations.csv"*/
 #define grapViwerFile "../graph_viewer/graph.gv"
 #define grapViwerMaxTrainFile "../graph_viewer/graph_maxTrain.gv"
 #define grapViewerMaxReducted "../graph_viewer/graph_maxTrainWithReduced.gv"
@@ -9,10 +9,9 @@
 
 Manager::Manager() {
     this->railway = new Graph();
-    buildRailway(stationF);
-    buildNetwork(networkF);
+    /*buildRailway(stationF);
+    buildNetwork(networkF);*/
     buildGraphviz(grapViwerFile);
-    this->reducedRailway = new Graph(*this->railway);
 }
 
 Manager::~Manager() {
@@ -82,6 +81,9 @@ void Manager::buildNetwork(const string& filename) {
     }
 }
 
+void Manager::createReducedGraph() {
+    this->reducedRailway = new Graph(*this->railway);
+}
 
 void Manager::buildGraphviz(const string& filename) {
     ofstream dotfile(filename);
@@ -157,7 +159,7 @@ void Manager::testing() {
     cout << railway->getVertexSet().at(507)->getStation().getName() << endl;
 }
 
-double Manager::maxTrains(const string source, const string destination) {
+double Manager::maxTrains(const string &source, const string &destination) {
     double maxNumTrains = railway->edmondsKarp(source, destination);
     buildGraphvizWithFlows(grapViwerMaxTrainFile);
     return maxNumTrains;
@@ -175,6 +177,14 @@ void Manager::topFlowMunicipalities(int &k) {
     }
 }
 
+void Manager::topFlowDistricts(int &k) {
+    vector<pair<string, double>> vct = railway->topFlowDistricts();
+
+    for (int i = 0; i < k; i++) {
+        cout << vct[i].first << " -> " << vct[i].second << endl;
+    }
+}
+
 
 double Manager::maxArrivalTrainsAtCertain(const string dest){
     double maxArrivalNum = railway->maxArrivalTrains(dest);
@@ -185,12 +195,12 @@ double Manager::maxArrivalTrainsAtCertain(const string dest){
 int Manager::maxTrainsMinCost(const string &src, const string &dst) {
     vector<Vertex*> path;
     railway->dijkstra(src, dst, path);
-    for (auto element: path) {
+    /*for (auto element: path) {
         cout << element->getStation().getName() << ", ";
     }
-    cout << endl;
+    cout << endl;*/
     int cost = railway->findVertex(dst)->getDistance();
-    cout << "|" << cost << "|" << endl;
+    //cout << "|" << cost << "|" << endl;
     return cost * railway->findBottleneck(path);
 }
 
@@ -198,6 +208,14 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     //this->reducedRailway = new Graph(*this->railway);
     //cout << reducedRailway->getNumVertex() << endl;
     //cout << reducedRailway->getNumEdges() << endl;
+    if (railway->findVertex(source) == nullptr) {
+        cerr << "Insert a valid source station" << endl;
+        return -1;
+    }
+    else if (railway->findVertex(destination) == nullptr) {
+        cerr << "Insert a valid target station" << endl;
+        return -1;
+    }
     vector<Vertex *> path;
     this->railway->edmondsKarp(source, destination);
     map<int, Edge *> vertexMap;
@@ -221,12 +239,12 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     int numLines;
 
     do{
-        cout << "How many lines are interdict?";
+        cout << "How many lines are interdict? ";
         cin >> numLines;
     }
     while(numLines < 0 || numLines > vertexMap.size());
 
-    cout << "Which connection(s) is/are interdict? (type the nr of the connection)" << endl;
+    cout << "Which connection(s) is/are interdict? (type the number of the connection)" << endl;
 
     int numberPick;
     for(int i = 0; i < numLines; i++){
@@ -252,7 +270,7 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
 
     double maxNumTrains = reducedRailway->edmondsKarp(source, destination);
     if(!maxNumTrains){
-        cout << "We can't access" << destination << " from " << source << "with those line(s) interdict" << endl;
+        cout << "We can't access " << destination << " from " << source << " with those line(s) interdict" << endl;
     }
     else
         buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);

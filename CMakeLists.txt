@@ -27,4 +27,4 @@ else(DOXYGEN_FOUND)
     message("Doxygen needs to be installed to generate the documentation.")
 endif(DOXYGEN_FOUND)
 
-add_executable(leic_rnm src/main.cpp headers/graph.h src/graph.cpp headers/vertexedge.h src/vertexedge.cpp src/station.cpp headers/station.h src/manager.cpp headers/manager.h)
+add_executable(leic_rnm src/main.cpp headers/graph.h src/graph.cpp headers/vertexedge.h src/vertexedge.cpp src/station.cpp headers/station.h src/manager.cpp headers/manager.h headers/menu.h src/menu.cpp)

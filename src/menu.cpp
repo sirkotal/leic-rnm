@@ -157,6 +157,7 @@ void Menu::switchSubMenu2(char option) {
 void Menu::switchSubMenu3(char option) {
     string src, dst;
     double num;
+    int k;
 
     manager.createReducedGraph();
     switch (option) {
@@ -170,7 +171,17 @@ void Menu::switchSubMenu3(char option) {
             cout << "The maximum number of trains that can travel between " << src << " and " << dst << " is: " << num << endl;
             break;
         case '2':
-            std::cout << "TODO\n";
+            std::cin.ignore(); //clear the buffer
+            std::cout << "  Choose source station.\n        >";
+            std::getline(std::cin, src);
+            std::cout << "  Choose destination station.\n       >";
+            std::getline(std::cin, dst);
+            manager.maxTrainsWithReducedRailway(src, dst);
+            std::cout << """"
+                         "NOTE: This function may take a while... (~1 min)\n"
+                         "  Insert which top-k you want to be presented.\n        >";
+            std::cin >> k;
+            manager.mostImpactedStations(k);
             break;
         case '0':
             std::cout << "So sorry to see you go! :(\n";

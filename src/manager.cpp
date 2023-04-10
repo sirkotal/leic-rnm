@@ -12,7 +12,6 @@ Manager::Manager() {
     buildRailway(stationF);
     buildNetwork(networkF);
     buildGraphviz(grapViwerFile);
-    this->reducedRailway = new Graph(*railway);
 }
 
 Manager::~Manager() {
@@ -197,7 +196,7 @@ int Manager::maxTrainsMinCost(const string &src, const string &dst) {
 }
 
 double Manager::maxTrainsWithReducedRailway(const string source, const string destination) {
-    //this->reducedRailway = this->railway;
+    this->reducedRailway = new Graph(*this->railway);
     vector<Vertex *> path;
     this->railway->edmondsKarp(source, destination);
     map<int, Edge *> vertexMap;
@@ -217,27 +216,45 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     for(int i = 0;i< vertexMap.size(); i++){
         cout << i << ": FROM: " << vertexMap.at(i)->getOrig()->getStation().getName()  << " | TO: "<< vertexMap.at(i)->getDest()->getStation().getName() << endl;
     }
-    cout << "Which connection is interdict? (type the nr of the connection)";
+
+    int numLines;
+
+    do{
+        cout << "How many lines are interdict?";
+        cin >> numLines;
+    }
+    while(numLines < 0 || numLines > vertexMap.size());
+
+    cout << "Which connection(s) is/are interdict? (type the nr of the connection)" << endl;
 
     int numberPick;
-    cin >> numberPick;
-
-    for(auto i : reducedRailway->getVertexSet())
-    {
-        if(i->getStation().operator==(vertexMap[numberPick]->getOrig()->getStation()))
-        {
-            i->removeEdge(vertexMap[numberPick]->getDest()->getStation().getName());
+    for(int i = 0; i < numLines; i++){
+        do{
+            cout << i << "- ";
+            cin >> numberPick;
         }
+        while(numberPick < 0 || numberPick > vertexMap.size());
 
-        if(i->getStation().operator==(vertexMap[numberPick]->getDest()->getStation()))
+        for(auto i : reducedRailway->getVertexSet())
         {
-            i->removeEdge(vertexMap[numberPick]->getOrig()->getStation().getName());
-        }
+            if(i->getStation().operator==(vertexMap[numberPick]->getOrig()->getStation()))
+            {
+                i->removeEdge(vertexMap[numberPick]->getDest()->getStation().getName());
+            }
 
+            if(i->getStation().operator==(vertexMap[numberPick]->getDest()->getStation()))
+            {
+                i->removeEdge(vertexMap[numberPick]->getOrig()->getStation().getName());
+            }
+        }
     }
 
     double maxNumTrains = reducedRailway->edmondsKarp(source, destination);
-    buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
+    if(!maxNumTrains){
+        cout << "We cant access" << destination << " from " << source << "with those line(s) interdict" << endl;
+    }
+    else
+        buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
     return maxNumTrains;
 }
 

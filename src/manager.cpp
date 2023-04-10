@@ -274,7 +274,6 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     }
     else
         buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
-    cout << "The maximum number of trains that can travel between " << source << " and " << destination << " is: " << maxNumTrains << endl;
     return maxNumTrains;
 }
 

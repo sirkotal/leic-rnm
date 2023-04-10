@@ -45,10 +45,12 @@ int main() {
                 cout << "Insert your stations file's path: ";
                 cin >> railway;
                 railway = path + railway;
+                std::cin.ignore(); //clear the buffer
                 cout << endl;
                 cout << "Insert your network file's path: ";
                 cin >> network;
                 network = path + network;
+                std::cin.ignore(); //clear the buffer
 
                 menu.dataBuilder(railway, network);
                 break;

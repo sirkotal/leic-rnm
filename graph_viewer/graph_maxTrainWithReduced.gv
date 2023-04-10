@@ -1,0 +1,13 @@
+digraph G {
+layout: neato;
+
+	"Lisboa Oriente" -> "Entroncamento" [label="Flow:3 | Cap:4", color=red, penwidth=3];
+	"Pombal" -> "Coimbra B" [label="Flow:3 | Cap:3", color=red, penwidth=3];
+	"Vila Nova de Gaia-Devesas" -> "Porto Campanhã" [label="Flow:3 | Cap:4", color=red, penwidth=3];
+	"Aveiro - Vouga" -> "Espinho" [label="Flow:3 | Cap:5", color=red, penwidth=3];
+	"Entroncamento" -> "Chão de Maçãs-Fátima" [label="Flow:1 | Cap:1", color=red, penwidth=1];
+	"Entroncamento" -> "Pombal" [label="Flow:2 | Cap:2", color=red, penwidth=2];
+	"Espinho" -> "Vila Nova de Gaia-Devesas" [label="Flow:3 | Cap:3", color=red, penwidth=3];
+	"Coimbra B" -> "Aveiro - Vouga" [label="Flow:3 | Cap:4", color=red, penwidth=3];
+	"Chão de Maçãs-Fátima" -> "Pombal" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+}

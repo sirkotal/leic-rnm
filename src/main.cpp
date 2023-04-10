@@ -12,6 +12,7 @@ void invalidInput(){
 int main() {
     char choice_menu, choice_submenu;
     string railway, network;
+    string path = "../data/";
     Menu menu = Menu();
     do{
         menu.printMainMenu();
@@ -42,10 +43,12 @@ int main() {
                 break;
             case 'R':
                 cout << "Insert your stations file's path: ";
-                getline(cin, railway);
+                cin >> railway;
+                railway = path + railway;
                 cout << endl;
                 cout << "Insert your network file's path: ";
-                getline(cin, network);
+                cin >> network;
+                network = path + network;
 
                 menu.dataBuilder(railway, network);
                 break;

@@ -12,6 +12,7 @@ Manager::Manager() {
     buildRailway(stationF);
     buildNetwork(networkF);
     buildGraphviz(grapViwerFile);
+    this->reducedRailway = new Graph(*this->railway);
 }
 
 Manager::~Manager() {
@@ -154,8 +155,6 @@ void Manager::testing() {
     cout << railway->getNumVertex() << endl;
     cout << railway->getNumEdges() << endl;
     cout << railway->getVertexSet().at(507)->getStation().getName() << endl;
-    cout << reducedRailway->getNumVertex() << endl;
-    cout << reducedRailway->getNumEdges() << endl;
 }
 
 double Manager::maxTrains(const string source, const string destination) {
@@ -196,7 +195,9 @@ int Manager::maxTrainsMinCost(const string &src, const string &dst) {
 }
 
 double Manager::maxTrainsWithReducedRailway(const string source, const string destination) {
-    this->reducedRailway = new Graph(*this->railway);
+    //this->reducedRailway = new Graph(*this->railway);
+    cout << reducedRailway->getNumVertex() << endl;
+    cout << reducedRailway->getNumEdges() << endl;
     vector<Vertex *> path;
     this->railway->edmondsKarp(source, destination);
     map<int, Edge *> vertexMap;
@@ -255,6 +256,7 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     }
     else
         buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
+    cout << railway->getNumEdges() << endl;
     return maxNumTrains;
 }
 
@@ -263,26 +265,16 @@ bool compFunc(const pair<string, double> f, const pair<string, double> s) {
 }
 
 void Manager::mostImpactedStations(int &k) {
-    int counter = 0;
     if (k > railway->getNumVertex() || k < 0) {
         cerr << "Invalid Input!" << endl;
         return;
     }
-    cout << "here" << endl;
     vector<pair<string, double>> impact;
-
     for (auto v : railway->getVertexSet()) {
-        cout << v->getStation().getName() << endl;
         double old_max = railway->maxArrivalTrains(v->getStation().getName());
-        cout << old_max << endl;
-        // TODO
-        cout << "here" << endl;
         double new_max = reducedRailway->maxArrivalTrains(v->getStation().getName());
-        cout << "here" << endl;
         impact.push_back(make_pair(v->getStation().getName(), old_max - new_max));
-        cout << ++counter << endl;
     }
-    cout << "|||here" << endl;
     sort(impact.begin(), impact.end(), compFunc);
 
     for (int i = 0; i < k; i++) {

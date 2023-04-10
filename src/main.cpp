@@ -11,7 +11,9 @@ void invalidInput(){
 int main() {
     Manager manager = Manager();
     manager.testing();
-    cout << manager.maxArrivalTrainsAtCertain("Benquerenças");
+    cout << manager.maxArrivalTrainsAtCertain("Benquerenças") << endl;
+    cout << manager.maxArrivalTrainsAtCertain("Freixo de Numão") << endl;
+    cout << manager.maxArrivalTrainsAtCertain("São Romão") << endl;
     cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl << endl;
     cout << manager.maxTrainsWithReducedRailway("Lisboa Oriente", "Porto Campanhã") << endl << endl;
     cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl << endl;

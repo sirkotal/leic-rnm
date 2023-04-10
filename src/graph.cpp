@@ -366,8 +366,8 @@ double Graph::findBottleneck(vector<Vertex*> &path) {
 
 
         bottleneck = min(bottleneck, w);
-        cout << "[" << bottleneck << "]";
+        //cout << "[" << bottleneck << "]";
     }
-    cout << endl << "{" << bottleneck << "}" << endl;
+    //cout << endl << "{" << bottleneck << "}" << endl;
     return bottleneck;
 }

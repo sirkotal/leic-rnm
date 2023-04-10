@@ -140,8 +140,8 @@ void Menu::switchSubMenu2(char option) {
             std::getline(std::cin, src);
             std::cout << "  Choose destination station.\n       >";
             std::getline(std::cin, dst);
-            std::cout << "The maximum number of trains that can travel between " << src << " and " << dst << " with minimum cost to the company is: ";
-            std::cout << manager.maxTrainsMinCost(src, dst) << "\n";
+            std::cout << "The minimum cost of operating the maximum number of trains possible between " << src << " and " << dst << " is: ";
+            std::cout << manager.maxTrainsMinCost(src, dst) << "€" << "\n";
             break;
         case '0':
             std::cout << "So sorry to see you go! :(\n";

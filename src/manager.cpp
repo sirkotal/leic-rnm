@@ -247,7 +247,11 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
     }
 
     double maxNumTrains = reducedRailway->edmondsKarp(source, destination);
-    buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
+    if(!maxNumTrains){
+        cout << "We cant access" << destination << " from " << source << "with those line(s) interdict" << endl;
+    }
+    else
+        buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
     return maxNumTrains;
 }
 

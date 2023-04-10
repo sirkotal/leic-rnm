@@ -13,10 +13,11 @@ public:
 
     void buildRailway(const string &filename);
     void buildNetwork(const string& filename);
+    void createReducedGraph();
 
     void testing();
 
-    double maxTrains(const string source, const string destination);
+    double maxTrains(const string &source, const string &destination);
     vector<pair<string,string>> maxCapacityTrainsPairs();
     void topFlowMunicipalities(int &k);
     void topFlowDistricts(int &k);
@@ -25,12 +26,19 @@ public:
 
     int maxTrainsMinCost(const string &src, const string &dst);
 
+    double maxTrainsWithReducedRailway(const string source, const string destination);
+
+    void mostImpactedStations(int &k);
+
 private:
     Graph* railway;
+    Graph* reducedRailway;
 
     void buildGraphviz(const string &filename);
 
     void buildGraphvizWithFlows(const string &filename);
+
+    void buildGraphvizWithFlowsSecondaryRailway(const string &filename);
 };
 
 #endif

@@ -1,38 +1,14 @@
 digraph G {
 layout: neato;
 
-	"Lisboa Oriente" -> "Entroncamento" [label="Flow:1 | Cap:4", color=red, penwidth=1];
-	"Lisboa Oriente" -> "Lisboa Santa Apolónia" [label="Flow:1 | Cap:4", color=red, penwidth=1];
-	"Seiça-Ourém" -> "Caxarias" [label="Flow:1 | Cap:3", color=red, penwidth=1];
-	"Aveiro - Vouga" -> "Espinho" [label="Flow:2 | Cap:5", color=red, penwidth=2];
-	"Simões" -> "Soure" [label="Flow:1 | Cap:3", color=red, penwidth=1];
-	"Vila Nova de Anços" -> "Formoselha / Santo Varão" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Caxarias" -> "Albergaria dos Doze" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+
+	"Lisboa Oriente" -> "Entroncamento" [label="Flow:3 | Cap:4", color=red, penwidth=3];
+	"Pombal" -> "Coimbra B" [label="Flow:3 | Cap:3", color=red, penwidth=3];
+	"Vila Nova de Gaia-Devesas" -> "Porto Campanhã" [label="Flow:3 | Cap:4", color=red, penwidth=3];
+	"Aveiro - Vouga" -> "Espinho" [label="Flow:3 | Cap:5", color=red, penwidth=3];
 	"Entroncamento" -> "Chão de Maçãs-Fátima" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Pelariga" -> "Simões" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Pereira" -> "Ameal-Sul" [label="Flow:1 | Cap:3", color=red, penwidth=1];
-	"Espinho" -> "Porto Campanhã" [label="Flow:2 | Cap:3", color=red, penwidth=2];
-	"Vila Pouca do Campo" -> "Casais" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Coimbra B" -> "Aveiro - Vouga" [label="Flow:2 | Cap:4", color=red, penwidth=2];
-	"Vermoil" -> "Pombal Resguardo" [label="Flow:1 | Cap:3", color=red, penwidth=1];
-	"Pombal Resguardo" -> "Pelariga" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Soure" -> "Vila Nova de Anços" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Bencanta" -> "Coimbra B" [label="Flow:1 | Cap:4", color=red, penwidth=1];
-	"Ameal" -> "Vila Pouca do Campo" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Casais" -> "Espadaneira" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Marvila" -> "Chelas" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Roma - Areeiro" -> "Entrecampos" [label="Flow:1 | Cap:5", color=red, penwidth=1];
-	"Chelas" -> "Roma - Areeiro" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Lisboa Santa Apolónia" -> "Braço de Prata" [label="Flow:1 | Cap:5", color=red, penwidth=1];
-	"Formoselha / Santo Varão" -> "Pereira" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Figueira da Foz" -> "Coimbra B" [label="Flow:1 | Cap:2", color=red, penwidth=1];
-	"Entrecampos" -> "Óbidos" [label="Flow:1 | Cap:2", color=red, penwidth=1];
-	"Albergaria dos Doze" -> "Litém" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Braço de Prata" -> "Marvila" [label="Flow:1 | Cap:5", color=red, penwidth=1];
-	"Ameal-Sul" -> "Ameal" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Espadaneira" -> "Bencanta" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Litém" -> "Vermoil" [label="Flow:1 | Cap:2", color=red, penwidth=1];
-	"Chão de Maçãs-Fátima" -> "Seiça-Ourém" [label="Flow:1 | Cap:1", color=red, penwidth=1];
-	"Óbidos" -> "Leiria" [label="Flow:1 | Cap:2", color=red, penwidth=1];
-	"Leiria" -> "Figueira da Foz" [label="Flow:1 | Cap:2", color=red, penwidth=1];
+	"Entroncamento" -> "Pombal" [label="Flow:2 | Cap:2", color=red, penwidth=2];
+	"Espinho" -> "Vila Nova de Gaia-Devesas" [label="Flow:3 | Cap:3", color=red, penwidth=3];
+	"Coimbra B" -> "Aveiro - Vouga" [label="Flow:3 | Cap:4", color=red, penwidth=3];
+	"Chão de Maçãs-Fátima" -> "Pombal" [label="Flow:1 | Cap:2", color=red, penwidth=1];
 }

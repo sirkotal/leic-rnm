@@ -18,6 +18,9 @@ using namespace std;
  */
 class Graph {
 public:
+    Graph() {};
+    Graph(Graph& g);
+    
     /**
      * @brief Finds a vertex in the graph with the given id
      * @param id The vertex's id

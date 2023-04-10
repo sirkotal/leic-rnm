@@ -2,6 +2,21 @@
 
 #define MAX std::numeric_limits<double>::max()
 
+Graph::Graph(Graph& g) {
+    for (auto v : g.getVertexSet()) {
+        addVertex(v->getStation());
+    }
+
+    for (auto v : g.getVertexSet()) {
+        auto v_copy = findVertex(v->getStation().getName());
+        for (auto e : v->getAdj()) {
+            auto w = e->getDest();
+            auto w_copy = findVertex(w->getStation().getName());
+            addEdge(v_copy->getStation().getName(), w_copy->getStation().getName(), e->getWeight(), e->getService());
+        }
+    }
+}
+
 Vertex* Graph::findVertex(const string &id) const {
     for (auto v: vertexSet) {
         if (v->getStation().getName() == id) {
@@ -39,6 +54,7 @@ bool Graph::removeVertex(const string &target) {
     for (auto e : node->getAdj()) {
         auto w = e->getDest();
         w->removeEdge(node->getStation().getName());
+        node->removeEdge(w->getStation().getName());
     }
 
     for (auto itr = vertexSet.begin(); itr != vertexSet.end(); itr++) {
@@ -276,9 +292,9 @@ vector<pair<string, double>> Graph::topFlowDistricts() {
 }
 
 double Graph::maxArrivalTrains(const string dest){
-    Vertex* motherSrc = new Vertex(Station("all", "all", "all", "all", "all"));
+    Station motherSrc = Station("all", "all", "all", "all", "all");
 
-    addVertex(motherSrc->getStation());
+    addVertex(motherSrc);
 
     for(auto i: this->vertexSet)
         for(auto j: i->getAdj())
@@ -286,12 +302,12 @@ double Graph::maxArrivalTrains(const string dest){
 
     for(auto i : this->vertexSet){
         if((!i->getStation().operator==(this->findVertex(dest)->getStation())) && (i->getAdj().size() == 1))
-            addEdge(motherSrc->getStation().getName(), i->getStation().getName(), MAX, "ALL");
+            addEdge(motherSrc.getName(), i->getStation().getName(), MAX, "ALL");
     }
 
-    double maxTrainArrival = edmondsKarp(motherSrc->getStation().getName(), dest);
+    double maxTrainArrival = edmondsKarp(motherSrc.getName(), dest);
 
-    removeVertex(motherSrc->getStation().getName());
+    removeVertex(motherSrc.getName());
     return maxTrainArrival;
 }
 
@@ -366,8 +382,8 @@ double Graph::findBottleneck(vector<Vertex*> &path) {
 
 
         bottleneck = min(bottleneck, w);
-        cout << "[" << bottleneck << "]";
+        //cout << "[" << bottleneck << "]";
     }
-    cout << endl << "{" << bottleneck << "}" << endl;
+    //cout << endl << "{" << bottleneck << "}" << endl;
     return bottleneck;
 }

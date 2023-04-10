@@ -11,8 +11,12 @@ void invalidInput(){
 int main() {
     Manager manager = Manager();
     manager.testing();
+    cout << manager.maxArrivalTrainsAtCertain("Benquerenças");
     cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl << endl;
     cout << manager.maxTrainsWithReducedRailway("Lisboa Oriente", "Porto Campanhã") << endl << endl;
+    cout << manager.maxTrains("Lisboa Oriente", "Porto Campanhã") << endl << endl;
+    int l = 5;
+    manager.mostImpactedStations(l);
 
     /*vector<pair<std::string, std::string>> alpha = manager.maxCapacityTrainsPairs();
     for (auto element: alpha) {

@@ -2,6 +2,21 @@
 
 #define MAX std::numeric_limits<double>::max()
 
+Graph::Graph(const Graph& g) {
+    for (auto v : g.getVertexSet()) {
+        addVertex(v->getStation());
+    }
+
+    for (auto v : g.getVertexSet()) {
+        auto v_copy = findVertex(v->getStation().getName());
+        for (auto e : v->getAdj()) {
+            auto w = e->getDest();
+            auto w_copy = findVertex(w->getStation().getName());
+            addEdge(v_copy->getStation().getName(), w_copy->getStation().getName(), e->getWeight(), e->getService());
+        }
+    }
+}
+
 Vertex* Graph::findVertex(const string &id) const {
     for (auto v: vertexSet) {
         if (v->getStation().getName() == id) {

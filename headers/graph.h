@@ -15,6 +15,8 @@ using namespace std;
 
 class Graph {
 public:
+    Graph() {};
+    Graph(const Graph& g);
     /*
     * Auxiliary function to find a vertex with a given ID.
     */

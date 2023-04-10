@@ -12,10 +12,12 @@ Manager::Manager() {
     buildRailway(stationF);
     buildNetwork(networkF);
     buildGraphviz(grapViwerFile);
+    this->reducedRailway = new Graph(*railway);
 }
 
 Manager::~Manager() {
     delete railway;
+    delete reducedRailway;
 }
 
 void Manager::buildRailway(const string& filename) {
@@ -153,6 +155,8 @@ void Manager::testing() {
     cout << railway->getNumVertex() << endl;
     cout << railway->getNumEdges() << endl;
     cout << railway->getVertexSet().at(507)->getStation().getName() << endl;
+    cout << reducedRailway->getNumVertex() << endl;
+    cout << reducedRailway->getNumEdges() << endl;
 }
 
 double Manager::maxTrains(const string source, const string destination) {
@@ -193,7 +197,7 @@ int Manager::maxTrainsMinCost(const string &src, const string &dst) {
 }
 
 double Manager::maxTrainsWithReducedRailway(const string source, const string destination) {
-    this->reducedRailway = this->railway;
+    //this->reducedRailway = this->railway;
     vector<Vertex *> path;
     this->railway->edmondsKarp(source, destination);
     map<int, Edge *> vertexMap;
@@ -242,21 +246,26 @@ bool compFunc(const pair<string, double> f, const pair<string, double> s) {
 }
 
 void Manager::mostImpactedStations(int &k) {
+    int counter = 0;
     if (k > railway->getNumVertex() || k < 0) {
-        cout << "Invalid Input!" << endl;
+        cerr << "Invalid Input!" << endl;
         return;
     }
-
+    cout << "here" << endl;
     vector<pair<string, double>> impact;
 
     for (auto v : railway->getVertexSet()) {
+        cout << v->getStation().getName() << endl;
         double old_max = railway->maxArrivalTrains(v->getStation().getName());
+        cout << old_max << endl;
         // TODO
+        cout << "here" << endl;
         double new_max = reducedRailway->maxArrivalTrains(v->getStation().getName());
-
+        cout << "here" << endl;
         impact.push_back(make_pair(v->getStation().getName(), old_max - new_max));
+        cout << ++counter << endl;
     }
-
+    cout << "|||here" << endl;
     sort(impact.begin(), impact.end(), compFunc);
 
     for (int i = 0; i < k; i++) {

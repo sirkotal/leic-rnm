@@ -5,6 +5,7 @@
 class Menu {
 public:
     Menu();
+    void invalidInput();
     void printMainMenu();
     void printSubMenu1();
     void printSubMenu2();
@@ -13,6 +14,8 @@ public:
     void switchSubMenu2(char option);
     void switchSubMenu3(char option);
     void dataBuilder(const string &r, const string &n);
+    void mainMenu();
+
 
 private:
     Manager manager;

@@ -6,6 +6,12 @@
 using namespace std;
 Menu::Menu(): manager(Manager()) {}
 
+void Menu::invalidInput(){
+    cout << '\n';
+    cout << "Uh-oh invalid option!\n";
+    cin.ignore(10000, '\n');
+    cin.clear();
+}
 void Menu::printMainMenu() {
     std::cout << """"
                  "----------------------------------------------------------\n"
@@ -75,7 +81,6 @@ void Menu::switchSubMenu1(char option) {
     string src, dst;
     int k;
     vector<pair<string, string>> pairs;
-    Manager manager = Manager();
     switch (option) {
         case '1':
             std::cin.ignore(); //clear the buffer
@@ -128,7 +133,6 @@ void Menu::switchSubMenu1(char option) {
 
 void Menu::switchSubMenu2(char option) {
     string src, dst;
-    Manager manager = Manager();
     switch (option) {
         case '1':
             std::cin.ignore(); //clear the buffer
@@ -151,7 +155,6 @@ void Menu::switchSubMenu2(char option) {
 
 void Menu::switchSubMenu3(char option) {
     string src, dst;
-    Manager manager = Manager();
     switch (option) {
         case '1':
             std::cout << "TODO\n";
@@ -172,4 +175,61 @@ void Menu::switchSubMenu3(char option) {
 void Menu::dataBuilder(const string &r, const string &n) {
     manager.buildRailway(r);
     manager.buildNetwork(n);
+}
+
+void Menu::mainMenu(){
+    char choice_menu, choice_submenu;
+    string railway, network;
+    string path = "../data/";
+    Menu menu = Menu();
+    do{
+        menu.printMainMenu();
+        cin >> choice_menu;
+
+        if (!std::cin.fail()){
+            switch(choice_menu){
+                case '1':
+                    menu.printSubMenu1();
+                    cin >> choice_submenu;
+                    if (!std::cin.fail()){
+                        menu.switchSubMenu1(choice_submenu);
+                    }
+                    break;
+                case '2':
+                    menu.printSubMenu2();
+                    cin >> choice_submenu;
+                    if (!std::cin.fail()){
+                        menu.switchSubMenu2(choice_submenu);
+                    }
+                    break;
+                case '3':
+                    menu.printSubMenu3();
+                    cin >> choice_submenu;
+                    if (!std::cin.fail()){
+                        menu.switchSubMenu3(choice_submenu);
+                    }
+                    break;
+                case 'r':
+                case 'R':
+                    cout << "Insert your stations file's path: ";
+                    cin >> railway;
+                    railway = path + railway;
+                    std::cin.ignore(); //clear the buffer
+                    cout << endl;
+                    cout << "Insert your network file's path: ";
+                    cin >> network;
+                    network = path + network;
+                    std::cin.ignore(); //clear the buffer
+
+                    menu.dataBuilder(railway, network);
+                    break;
+                case '0':
+                    cout << "So sorry to see you go! :(\n";
+                    exit(0);
+                default:
+                    invalidInput();
+                    break;
+            }
+        }
+    } while (choice_menu != '0');
 }

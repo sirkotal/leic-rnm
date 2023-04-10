@@ -196,8 +196,8 @@ int Manager::maxTrainsMinCost(const string &src, const string &dst) {
 
 double Manager::maxTrainsWithReducedRailway(const string source, const string destination) {
     //this->reducedRailway = new Graph(*this->railway);
-    cout << reducedRailway->getNumVertex() << endl;
-    cout << reducedRailway->getNumEdges() << endl;
+    //cout << reducedRailway->getNumVertex() << endl;
+    //cout << reducedRailway->getNumEdges() << endl;
     vector<Vertex *> path;
     this->railway->edmondsKarp(source, destination);
     map<int, Edge *> vertexMap;
@@ -252,11 +252,10 @@ double Manager::maxTrainsWithReducedRailway(const string source, const string de
 
     double maxNumTrains = reducedRailway->edmondsKarp(source, destination);
     if(!maxNumTrains){
-        cout << "We cant access" << destination << " from " << source << "with those line(s) interdict" << endl;
+        cout << "We can't access" << destination << " from " << source << "with those line(s) interdict" << endl;
     }
     else
         buildGraphvizWithFlowsSecondaryRailway(grapViewerMaxReducted);
-    cout << railway->getNumEdges() << endl;
     return maxNumTrains;
 }
 
@@ -278,6 +277,9 @@ void Manager::mostImpactedStations(int &k) {
     sort(impact.begin(), impact.end(), compFunc);
 
     for (int i = 0; i < k; i++) {
+        if (impact[i].second == 0) {
+            break;
+        }
         cout << impact[i].first << " -> " << impact[i].second << endl;
     }
 

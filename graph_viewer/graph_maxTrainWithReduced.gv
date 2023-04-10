@@ -1,6 +1,7 @@
 digraph G {
 layout: neato;
 
+
 	"Lisboa Oriente" -> "Entroncamento" [label="Flow:3 | Cap:4", color=red, penwidth=3];
 	"Pombal" -> "Coimbra B" [label="Flow:3 | Cap:3", color=red, penwidth=3];
 	"Vila Nova de Gaia-Devesas" -> "Porto Campanhã" [label="Flow:3 | Cap:4", color=red, penwidth=3];

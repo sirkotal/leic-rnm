@@ -91,10 +91,6 @@ void Vertex::setDistance(int num) {
     this->dist = num;
 }
 
-/*bool Vertex::operator()(const Vertex* s, const Vertex* t) const {
-    return s->getDistance() > t->getDistance();
-}*/
-
 Vertex* Vertex::getSRC() {
     return this->src;
 }

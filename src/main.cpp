@@ -42,12 +42,12 @@ int main() {
                 }
                 break;
             case 'R':
-                cout << "Insert your stations file's path: ";
+                cout << "Insert your stations' file: ";
                 cin >> railway;
                 railway = path + railway;
                 std::cin.ignore(); //clear the buffer
                 cout << endl;
-                cout << "Insert your network file's path: ";
+                cout << "Insert your network's file: ";
                 cin >> network;
                 network = path + network;
                 std::cin.ignore(); //clear the buffer

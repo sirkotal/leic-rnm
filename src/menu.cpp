@@ -172,4 +172,5 @@ void Menu::switchSubMenu3(char option) {
 void Menu::dataBuilder(const string &r, const string &n) {
     manager.buildRailway(r);
     manager.buildNetwork(n);
+    //manager.testing();
 }

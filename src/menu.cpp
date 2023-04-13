@@ -168,6 +168,10 @@ void Menu::switchSubMenu3(char option) {
             std::cout << "  Choose destination station.\n       >";
             std::getline(std::cin, dst);
             num = manager.maxTrainsWithReducedRailway(src, dst);
+
+            if (num == -1) {
+                break;
+            }
             cout << "The maximum number of trains that can travel between " << src << " and " << dst << " is: " << num << endl;
             break;
         case '2':
